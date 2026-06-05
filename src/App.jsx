@@ -1,13 +1,33 @@
-import { Container, Button } from 'react-bootstrap';
+// src/App.jsx
+import { Routes, Route } from 'react-router'; // O 'react-router' según la versión
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Inicio from './pages/Inicio';
+import Productos from './pages/Productos';
+import DetalleProducto from './pages/DetalleProducto';
+import Carrito from './pages/Carrito';
+import Error404 from './pages/Error404';
 
 function App() {
   return (
-    <Container className="mt-5 text-center">
-      <h1>¡Tienda de Videojuegos en marcha!</h1>
-      <p className="lead">La base con el estilo visual ya está configurada correctamente.</p>
-      <Button variant="primary" className="me-2">Botón de Bootstrap</Button>
-      <Button variant="success">Otro Botón</Button>
-    </Container>
+    <div className="d-flex flex-column min-vh-100">
+      {/* El Header (con el Navbar adentro) se muestra SIEMPRE arriba */}
+      <Header />
+
+      {/* El contenedor de rutas cambia el contenido del medio según la URL */}
+      <main className="py-4"> 
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/producto/:id" element={<DetalleProducto />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </main>
+
+      {/* El Footer se muestra SIEMPRE abajo de todo */}
+      <Footer />
+    </div>
   );
 }
 
