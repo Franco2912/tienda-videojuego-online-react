@@ -8,17 +8,18 @@ import DetalleProducto from './pages/DetalleProducto';
 import Carrito from './pages/Carrito';
 import Error404 from './pages/Error404';
 
+
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100 fondo-app">
       {/* El Header (con el Navbar adentro) se muestra SIEMPRE arriba */}
       <Header />
 
       {/* El contenedor de rutas cambia el contenido del medio según la URL */}
-      <main className="py-4"> 
+      <main className="flex-grow-1 py-4"> 
         <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/productos" element={<Productos />} />
+          <Route path="/productos" element={<Productos />} />          
           <Route path="/producto/:id" element={<DetalleProducto />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="*" element={<Error404 />} />

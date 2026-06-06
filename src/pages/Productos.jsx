@@ -1,22 +1,36 @@
 // src/pages/Productos.jsx
 import { Container, Row, Col } from 'react-bootstrap';
-// Nota para más adelante: acá van a importar el componente ProductoCard
-// import ProductoCard from '../components/ProductoCard';
+import JuegoCard from "../components/JuegoCard"
+import juegosBiblioteca from "../data/productos"
+import "./Productos.css"
+
+
 
 const Productos = () => {
   return (
     <Container className="mt-4">
       <h2 className="mb-4 text-info text-uppercase tracking-wider">🎮 Catálogo de Videojuegos</h2>
       <p className="lead text-muted">Explorá los títulos disponibles y sumalos a tu biblioteca.</p>
-      
-      <Row>
-        {/* Espacio para listar las tarjetas de los juegos */}
-        <Col>
-          <div className="p-5 text-center bg-dark rounded border border-secondary">
-            <p className="m-0 text-white-50">Aquí se mostrarán los 12 videojuegos del catálogo.</p>
-          </div>
-        </Col>
-      </Row>
+
+
+      <Col className='contenedor-juego'>
+        <div className="  p-5 text-center bg-dark rounded border border-secondary">
+          <Row>
+            {juegosBiblioteca.map((juego) => (
+                    <div key={juego.id} className="col-md-12 mb-4">                        
+                        <JuegoCard 
+                            titulo={juego.titulo}
+                            genero={juego.genero}
+                            descripcion={juego.descripcion}
+                            precio={juego.precio}
+                            imagen={juego.imagen}
+                        />                        
+                    </div>
+                ))}
+          </Row>
+        </div>
+      </Col>
+
     </Container>
   );
 };
