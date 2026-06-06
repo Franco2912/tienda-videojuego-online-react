@@ -8,7 +8,11 @@ html, body {
 /* Le agregamos position relative y una altura mínima al contenedor de React */
 #root {
   position: relative;
-  min-height: 100%; /* Si el contenido crece, el contenedor se estira */
+  min-height: 100%; /* Ocupa el alto del monitor como mínimo */
+  height: auto !important; /* Permite que crezca libremente si hay mucho contenido */
+
+  padding-bottom: 100px; 
+  
   box-sizing: border-box;
 }
 
@@ -18,4 +22,28 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
+  margin: 0;
+}
+
+.fondo-app {
+  background-color: #431885;
+  background-image: linear-gradient(to bottom, #431885, #2a0f52);
+}
+
+
+.carousel-control-prev {
+  left: -120px !important; 
+}
+
+.carousel-control-next {
+  right: -120px !important; 
+}
+
+/* Opcional: Si quedan invisibles por el fondo, dales color o un fondo redondo */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgb(26, 9, 51) !important; /* El color de Vapor */
+  padding: 20px;
+  border-radius: 50%;
+  border: 1px solid #00f2fe; /* Borde neón */
 }

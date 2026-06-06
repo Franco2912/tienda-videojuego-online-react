@@ -9,7 +9,7 @@ const NavbarComponent = () => {
     const cantidadCarrito = 0; 
 
     return (
-    <BootstrapNavbar bg="dark" variant="dark" expand="lg" className="border-bottom border-purple">
+    <BootstrapNavbar bg="primary" variant="dark" expand="lg" className="border-bottom border-purple">
         <Container>
         {/* Logo / Nombre de la tienda (Redirige al Inicio) */}
         <BootstrapNavbar.Brand as={NavLink} to="/" className="fw-bold text-uppercase tracking-wider">
