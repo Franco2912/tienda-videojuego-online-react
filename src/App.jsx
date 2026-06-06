@@ -10,7 +10,7 @@ import Error404 from './pages/Error404';
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100 fondo-app">
       {/* El Header (con el Navbar adentro) se muestra SIEMPRE arriba */}
       <Header />
 
