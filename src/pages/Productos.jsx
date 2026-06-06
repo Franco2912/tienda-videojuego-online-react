@@ -7,6 +7,9 @@ import "./Productos.css"
 
 
 const Productos = () => {
+
+  const juegosOrdenados = [...juegosBiblioteca].sort((a, b) => a.titulo.localeCompare(b.titulo));
+
   return (
     <Container className="mt-4">
       <h2 className="mb-4 text-info text-uppercase tracking-wider">🎮 Catálogo de Videojuegos</h2>
@@ -16,13 +19,11 @@ const Productos = () => {
       <Col className='contenedor-juego'>
         <div className="  p-5 text-center bg-dark rounded border border-secondary">
           <Row>
-            {juegosBiblioteca.map((juego) => (
-                    <div key={juego.id} className="col-md-12 mb-4">                        
+            {juegosOrdenados.map((juego) => (
+                    <div key={juego.id} className="col-md-3 mb-4">                        
                         <JuegoCard 
                             titulo={juego.titulo}
-                            genero={juego.genero}
-                            descripcion={juego.descripcion}
-                            precio={juego.precio}
+                            generos={juego.generos}                       
                             imagen={juego.imagen}
                         />                        
                     </div>
