@@ -1,14 +1,14 @@
 import { Container } from 'react-bootstrap';
 
-function Productos() {
+function Login() {
   return (
     <Container className="page-section">
-      <h1>Catálogo</h1>
+      <h1>Login</h1>
       <p className="page-lead">
-        El catálogo de productos se implementará en el Bloque 1.
+        El inicio de sesión se implementará en el Bloque 7.
       </p>
     </Container>
   );
 }
 
-export default Productos;
+export default Login;

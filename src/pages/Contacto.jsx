@@ -1,14 +1,14 @@
 import { Container } from 'react-bootstrap';
 
-function Productos() {
+function Contacto() {
   return (
     <Container className="page-section">
-      <h1>Catálogo</h1>
+      <h1>Contacto / Finalizar compra</h1>
       <p className="page-lead">
-        El catálogo de productos se implementará en el Bloque 1.
+        El formulario de compra se implementará en el Bloque 5.
       </p>
     </Container>
   );
 }
 
-export default Productos;
+export default Contacto;

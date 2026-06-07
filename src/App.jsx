@@ -1,13 +1,32 @@
-import { Container, Button } from 'react-bootstrap';
+import { Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer.jsx';
+import NavbarWizardGames from './components/Navbar.jsx';
+import Carrito from './pages/Carrito.jsx';
+import Contacto from './pages/Contacto.jsx';
+import DetalleProducto from './pages/DetalleProducto.jsx';
+import Inicio from './pages/Inicio.jsx';
+import Login from './pages/Login.jsx';
+import NotFound from './pages/NotFound.jsx';
+import Productos from './pages/Productos.jsx';
+import './App.css';
 
 function App() {
   return (
-    <Container className="mt-5 text-center">
-      <h1>¡Tienda de Videojuegos en marcha!</h1>
-      <p className="lead">La base con el estilo visual ya está configurada correctamente.</p>
-      <Button variant="primary" className="me-2">Botón de Bootstrap</Button>
-      <Button variant="success">Otro Botón</Button>
-    </Container>
+    <div className="app-layout">
+      <NavbarWizardGames />
+      <main className="app-main">
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/producto/:id" element={<DetalleProducto />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
