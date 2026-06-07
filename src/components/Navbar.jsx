@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Navbar as BootstrapNavbar, Container, Nav, Badge } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom'; // <-- Importamos Link para el carrito
 import { FiShoppingCart } from 'react-icons/fi';
-import iconNeon from '../assets/gemini-svg.svg';
+import iconNeon from '../assets/logo-svg.svg';
 
 const NavbarComponent = ({ carrito = [] }) => {
     
