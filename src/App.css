@@ -109,3 +109,87 @@
     gap: 0.25rem;
   }
 }
+
+.catalogo-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.catalogo-vacio {
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.producto-card {
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.producto-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 400 / 260;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.producto-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.producto-card__badge-stock {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.producto-card__categoria {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+  color: var(--color-accent) !important;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  font-weight: 500;
+}
+
+.producto-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.producto-card__descripcion {
+  color: var(--color-text-muted);
+  font-size: 0.925rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.producto-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.producto-card__precio {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.producto-card__stock {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}

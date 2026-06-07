@@ -1,12 +1,30 @@
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
+import ProductoCard from '../components/ProductoCard.jsx';
+import { useProductos } from '../context/ProductosContext.jsx';
 
 function Productos() {
+  const { productos } = useProductos();
+
   return (
     <Container className="page-section">
-      <h1>Catálogo</h1>
-      <p className="page-lead">
-        El catálogo de productos se implementará en el Bloque 1.
-      </p>
+      <header className="catalogo-header mb-4">
+        <h1>Catálogo</h1>
+        <p className="page-lead mb-0">
+          Explorá nuestra selección de {productos.length} productos en WizardGames.
+        </p>
+      </header>
+
+      {productos.length === 0 ? (
+        <p className="catalogo-vacio">No hay productos disponibles por el momento.</p>
+      ) : (
+        <Row xs={1} sm={2} lg={3} xl={4} className="g-4">
+          {productos.map((producto) => (
+            <Col key={producto.id}>
+              <ProductoCard producto={producto} />
+            </Col>
+          ))}
+        </Row>
+      )}
     </Container>
   );
 }
