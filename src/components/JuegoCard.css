@@ -38,11 +38,9 @@
 
 .card-juego-body {
     height: 20%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     padding: 0.75rem;
 }
 
@@ -64,4 +62,9 @@
     background-color: rgba(50, 251, 226, 0.2);
     color: #32fbe2;
     border: 1px solid rgba(50, 251, 226, 0.5);
+}
+
+.link-juego {
+    text-decoration: none;
+    color: inherit;
 }

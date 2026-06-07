@@ -1,3 +1,43 @@
 .contenedor-juego{
     padding-bottom: 100px;
 }
+
+.buscador-juegos {
+    background-color: rgba(26, 9, 51, 0.9);
+    color: white;
+    
+    border-radius: 10px;
+    padding: 12px 16px;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.buscador-juegos:hover {    
+    border-color: #00ffff;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+    
+}
+
+.mensaje-sin-resultados {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: white;
+}
+
+.mensaje-sin-resultados h4 {
+    color: #32fbe2;
+    margin-bottom: 1rem;
+}
+
+.filtro-categoria {
+    background-color: rgba(26, 9, 51, 0.9);
+    color: white;
+
+    border: 2px solid rgba(50, 251, 226, 0.4);
+    border-radius: 12px;
+
+    padding: 10px 14px;
+
+    transition: all 0.2s ease;
+}

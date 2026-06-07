@@ -23,7 +23,7 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/biblioteca" element={<Biblioteca />} />            
-          <Route path="/producto/:id" element={<DetalleProducto />} />
+          <Route path="/productos/:id" element={<DetalleProducto />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
