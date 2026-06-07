@@ -3,6 +3,8 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 /* Le agregamos position relative y una altura mínima al contenedor de React */
@@ -30,7 +32,6 @@ footer {
   background-image: linear-gradient(to bottom, #431885, #2a0f52);
 }
 
-
 .carousel-control-prev {
   left: -120px !important; 
 }
@@ -46,4 +47,147 @@ footer {
   padding: 20px;
   border-radius: 50%;
   border: 1px solid #00f2fe; /* Borde neón */
+}
+
+/* src/index.css */
+
+/* Clase que se aplica temporalmente mediante React */
+.carrito-sacudida {
+  animation: bouncePop 0.3s ease-in-out;
+}
+
+/* Definición de la animación de escala y salto */
+@keyframes bouncePop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3); /* Se agranda un 30% en el medio del click */
+    color: #00f2fe; /* Brilla momentáneamente en el celeste neón */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Contenedor principal del Logo */
+/* button styling */
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  --border-right: 6px;
+  --text-stroke-color: rgba(255, 255, 255, 0.6);
+  --animation-color: #37FF8B;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none !important; /* Evita subrayados molestos de enlaces */
+  font-size: var(--fs-size);
+  font-family: "Arial", sans-serif;
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+}
+
+/* El texto base gris original */
+.button .actual-text {
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  transition: -webkit-text-stroke 0.4s ease-in-out; /* Desvanecimiento suave */
+}
+
+/* ¡CARRERA CLAVE! Cuando pasás el mouse, el contorno gris de fondo desaparece completamente */
+.button:hover .actual-text {
+  -webkit-text-stroke: 1px transparent;
+}
+
+/* Este es el texto que se revela al pasar el mouse */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  top: 5px;
+  white-space: nowrap; /* Evita que el texto salte de línea o se ponga vertical mientras se estira */
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  /* Doble sombra para lograr que el verde neón explote con mucha más fuerza */
+  filter: drop-shadow(0 0 10px var(--animation-color)) drop-shadow(0 0 23px var(--animation-color));
+}
+
+/* Altura por defecto para monitores y notebooks */
+.carousel-info-card {
+  height: 420px;
+}
+
+/* ==========================================================================
+  RESPONSIVO (Ajustes para Celulares y Tablets)
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  
+  /* 1. Forzamos a la imagen a quedarse RÍGIDA en 240px en celular */
+  .carousel .carousel-item img {
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+    object-fit: cover !important;
+  }
+
+  /* 2. Ajustamos la tarjeta de información abajo de la imagen */
+  .carousel .carousel-info-card {
+    height: auto !important;
+    min-height: 220px !important;
+    padding: 1.25rem !important;
+  }
+
+  /* 3. Evitamos que las descripciones largas estiren la tarjeta */
+  .carousel .carousel-info-card p {
+    height: auto !important;
+    max-height: 90px !important;
+    overflow: hidden !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* 4. CLAVAMOS LAS FLECHAS EXACTAMENTE ARRIBA DE LA IMAGEN DE 240PX */
+  .carousel .carousel-control-prev,
+  .carousel .carousel-control-next {
+    display: flex !important;
+    position: absolute !important;
+    top: 0 !important;
+    height: 240px !important; /* Mide exactamente lo mismo que la imagen */
+    align-items: center !important;
+    width: 12% !important;
+    z-index: 5 !important;
+  }
+
+  .carousel-control-prev {
+  left: 0px !important; 
+}
+
+.carousel-control-next {
+  right: 0px !important; 
+}
+
+
+  /* Estilizado de las flechitas para que se vean perfectas sobre la foto */
+  .carousel .carousel-control-prev-icon,
+  .carousel .carousel-control-next-icon {
+    width: 2rem !important;
+    height: 2rem !important;
+    background-color: rgba(0, 0, 0, 0.6) !important; /* Círculo oscuro de fondo */
+    background-size: 55% !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
 }

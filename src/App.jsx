@@ -10,10 +10,11 @@ import Error404 from './pages/Error404';
 
 
 function App() {
+
   return (
     <div className="d-flex flex-column min-vh-100 fondo-app">
       {/* El Header (con el Navbar adentro) se muestra SIEMPRE arriba */}
-      <Header />
+      <Header/>
 
       {/* El contenedor de rutas cambia el contenido del medio según la URL */}
       <main className="flex-grow-1 py-4"> 
@@ -26,7 +27,6 @@ function App() {
         </Routes>
       </main>
 
-      {/* El Footer se muestra SIEMPRE abajo de todo */}
       <Footer />
     </div>
   );
