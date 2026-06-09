@@ -8,14 +8,17 @@ import DetalleProducto from './pages/DetalleProducto';
 import Carrito from './pages/Carrito';
 import Error404 from './pages/Error404';
 import Biblioteca from './pages/Biblioteca';
+import { useState } from 'react'
 
 
 function App() {
 
+  const [carrito, setCarrito] = useState([])
+
   return (
     <div className="d-flex flex-column min-vh-100 fondo-app">
       {/* El Header (con el Navbar adentro) se muestra SIEMPRE arriba */}
-      <Header/>
+      <Header carrito={carrito} />
 
       {/* El contenedor de rutas cambia el contenido del medio según la URL */}
       <main className="flex-grow-1 py-4"> 
@@ -23,7 +26,7 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/biblioteca" element={<Biblioteca />} />            
-          <Route path="/productos/:id" element={<DetalleProducto />} />
+          <Route path="/productos/:id" element={<DetalleProducto carrito = {carrito} setCarrito = {setCarrito} />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

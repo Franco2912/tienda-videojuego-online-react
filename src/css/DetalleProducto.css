@@ -1,3 +1,8 @@
+.fila-superior,
+.fila-detalles{
+    margin-bottom: 20px;
+}
+
 .contenedor-media{
     height: 500px;
     display: flex;
@@ -12,14 +17,14 @@
     line-height: 1.8;
 }
 
+.contenedor-detalles p{
+    margin-bottom: 0.10rem;
+}
+
 .columna-detalles{
     height: 500px;
     display: flex;
     flex-direction: column;
-}
-
-.contenedor-detalles p{
-    margin-bottom: 0.10rem;
 }
 
 .btn-descargar {
@@ -87,4 +92,116 @@
 
 .etiquetas{
     margin: 0.10rem;
+}
+
+.fila-comprar{
+    padding: 15px 20px;
+    margin-bottom: 20px;   
+}
+
+.fila-similares{
+    border-color: #000;
+    padding: 20px;
+}
+
+.acciones-compra{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;    
+}
+
+.precio-compra{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.precio-base{
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.precio-final{
+    color: #32fbe2;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.btn-carrito{
+    background: linear-gradient(135deg, #8bc53f, #5c9c2d);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 8px;
+}
+
+.btn-carrito:hover{
+    box-shadow: 0 0 15px rgba(139,197,63,.4);
+}
+
+.btn-biblioteca{
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+}
+
+.titulo-compra{
+    color: #32fbe2;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.titulo-similares{
+    color: #d9f8ff;
+    margin-bottom: 15px;
+}
+
+.card-similar{
+    display: block;
+    text-decoration: none;
+    background: #1b2838;
+    overflow: hidden;
+    transition: transform .2s ease;
+}
+
+.card-similar:hover{
+    transform: translateY(-3px);
+}
+
+.img-similares{
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+
+.info-similar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 10px;
+
+    background: rgba(0,0,0,.6);
+}
+
+.titulo-similar{
+    color: #d9f8ff;
+    font-size: .85rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 70%;
+}
+
+.precio-similar{
+    color: #32fbe2;
+    font-weight: 600;
 }
