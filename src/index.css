@@ -2,34 +2,53 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
+  width: 100%;
 }
 
-/* Le agregamos position relative y una altura mínima al contenedor de React */
-#root {
-  position: relative;
-  min-height: 100%; /* Ocupa el alto del monitor como mínimo */
-  height: auto !important; /* Permite que crezca libremente si hay mucho contenido */
+body {
+  overflow-x: hidden !important; 
+}
 
-  padding-bottom: 100px; 
-  
-  box-sizing: border-box;
+#root {
+  width: 100%;
 }
 
 footer {
-  height: 100px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin-top: auto; /* Truco de Flexbox: empuja el footer al fondo si hay poco contenido */
   width: 100%;
-  margin: 0;
 }
 
-.fondo-app {
-  background-color: #431885;
-  background-image: linear-gradient(to bottom, #431885, #2a0f52);
+/* ==========================================================================
+    CONFIGURACIÓN DE FONDOS POR TEMA (App.jsx)
+   ========================================================================== */
+
+/* 1. MODO OSCURO */
+html[data-bs-theme="dark"] .fondo-app {
+  background-color: #220c42 !important; 
+  background-image: none !important;
+  min-height: 100vh;
+}
+
+
+/* 2. MODO CLARO */
+html[data-bs-theme="primary"] .fondo-app {
+  background-color: #431885 !important;
+  background-image: linear-gradient(to bottom, #431885, #2a0f52) !important;
+  min-height: 100vh;
+}
+
+/* Si estás en modo claro, la info del carrusel pasa a ser blanca con texto oscuro */
+html[data-bs-theme="primary"] .carousel-info-card {
+  background-color: #571fac !important;
+  border-left: 1px solid #000000 !important;
+}
+
+html[data-bs-theme="primary"] .carousel-info-card h2 {
+  color: #ffffff !important;
+}
+
+html[data-bs-theme="primary"] .carousel-info-card p {
+  color: #40d4af !important;
 }
 
 .carousel-control-prev {
@@ -69,6 +88,8 @@ footer {
     transform: scale(1);
   }
 }
+
+
 
 /* Contenedor principal del Logo */
 /* button styling */
@@ -130,6 +151,77 @@ footer {
 .carousel-info-card {
   height: 420px;
 }
+
+
+/* From Uiverse.io by Madflows - Adaptación Estructura Interna */
+.toggle-switch {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  --light: #d8dbe0;
+  --dark: #28292c;
+  left: 50px;
+}
+
+/* El fondo por defecto cuando NO está seleccionado (Modo Dark en la lógica del CSS viejo) 
+   pero ahora lo pintamos de CLARO para que sea el inicio */
+.switch-label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light); /* Fondo Gris Claro al arrancar */
+  border-radius: 25px;
+  cursor: pointer;
+  border: 3px solid var(--light);
+  transition: 0.3s ease;
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+/* Cuando hacemos click y se desactiva el modo claro (pasa a Modo Oscuro) */
+.checkbox:not(:checked) ~ .slider {
+  background-color: var(--dark);
+}
+
+/* Hack para pintar el borde del label cuando pasa a Modo Oscuro */
+.switch-label:has(.checkbox:not(:checked)) {
+  background-color: var(--dark);
+  border-color: var(--dark);
+}
+
+/* La pelotita por defecto (MODO CLARO): Un sol amarillo brillante */
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #ffb703; /* Amarillo Sol */
+  transition: 0.3s ease-in-out;
+  box-shadow: none;
+}
+
+/* CUANDO SE DESTESTILDA (Pasa a MODO DARK): Se mueve a la derecha y se vuelve LUNA */
+.checkbox:not(:checked) ~ .slider::before {
+  transform: translateX(46px);
+  background-color: var(--dark);
+  /* Sombra interna para morder el círculo amarillo y simular la luna */
+  box-shadow: inset 10px -4px 0px 0px var(--light); 
+}
+
 
 /* ==========================================================================
   RESPONSIVO (Ajustes para Celulares y Tablets)

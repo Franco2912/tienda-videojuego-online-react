@@ -33,7 +33,7 @@ const CarruselJuegos = ({ listaJuegos }) => {
                         {juego.categoria}
                     </Badge>
                     <h2 className="text-white fw-bold mb-3 fs-3">{juego.titulo}</h2>
-                    <p className="text-white-50 small mb-4" style={{ lineHeight: '1.6' }}>
+                    <p className="text-white-50 mb-4" style={{ lineHeight: '1.6' }}>
                         {juego.descripcion}
                     </p>
                     </div>
@@ -41,7 +41,7 @@ const CarruselJuegos = ({ listaJuegos }) => {
                     {/* Sección de Precios y Botón */}
                     <div className="d-flex align-items-center justify-content-between pt-3 border-top border-secondary">
                     <div>
-                        <small className="text-muted d-block text-uppercase font-monospace fs-7 mb-1">
+                        <small className="text-muted d-block text-uppercase font-monospace fs-5 mb-1">
                         Precio actual
                         </small>
                         

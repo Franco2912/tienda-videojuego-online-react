@@ -6,17 +6,15 @@ import { NavLink, Link } from 'react-router-dom'; // <-- Importamos Link para el
 import { FiShoppingCart } from 'react-icons/fi';
 import iconNeon from '../assets/logo-svg.svg';
 
-const NavbarComponent = ({ carrito = [] }) => {
+const NavbarComponent = ({ carrito = [], temaActual, alCambiarTema }) => {
     
     const [animar, setAnimar] = useState(false);
     const cantidadProductos = carrito.length;
     
-    // Guardamos la cantidad anterior para saber si sumó o restó un producto
     const cantidadAnterior = useRef(cantidadProductos);
 
     useEffect(() => {
-        // 1. No animar si el carrito está vacío al iniciar
-        // 2. Solo animar si la cantidad ACTUAL es mayor a la ANTERIOR (se agregó un producto)
+
         if (cantidadProductos > 0 && cantidadProductos > cantidadAnterior.current) {
         setAnimar(true);
 
@@ -27,17 +25,17 @@ const NavbarComponent = ({ carrito = [] }) => {
         return () => clearTimeout(timer);
         }
 
-        // Actualizamos la referencia con el valor actual para la próxima ejecución
         cantidadAnterior.current = cantidadProductos;
     }, [cantidadProductos]);
 
     return (
-        <BootstrapNavbar bg="primary" variant="dark" expand="lg" className="border-bottom border-purple sticky-top">
+        <BootstrapNavbar bg={temaActual} variant={temaActual === 'primary' ? 'dark' : 'light'} expand="lg" className="border-bottom border-purple sticky-top">
         <Container>
+                
                 <img 
                 src={iconNeon} 
                 alt="NeonGames Icon" 
-                style={{ height: '40px', width: 'auto' }} 
+                style={{ height: '60px', width: 'auto' }} 
                 className="d-inline-block"
                 />
             {/* Logo / Nombre de la tienda */}
@@ -99,6 +97,12 @@ const NavbarComponent = ({ carrito = [] }) => {
                 )}
                 </Nav.Link>
 
+                <div className="toggle-switch">
+                    <label className="switch-label">
+                        <input type="checkbox" className="checkbox" checked={temaActual === 'primary'} onChange={alCambiarTema} />
+                        <span className="slider"></span>
+                    </label>
+                </div>  
             </Nav>
                 </BootstrapNavbar.Collapse>
         </Container>

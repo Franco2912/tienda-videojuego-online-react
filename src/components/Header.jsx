@@ -2,13 +2,17 @@
 import PropTypes from 'prop-types';
 import NavbarComponent from './Navbar'; // Importamos el componente de navegación
 
-const Header = ({ carrito }) => {
+const Header = ({ carrito, temaActual, alCambiarTema }) => {
     return (
         <header>
-            {/* Acá adentro va el Navbar de React Bootstrap */}
-        <NavbarComponent carrito={carrito} />
-    </header>
-    );
+        {/* 2. Se las pasás limpiamente al Navbar */}
+        <NavbarComponent
+            carrito={carrito} 
+            temaActual={temaActual} 
+            alCambiarTema={alCambiarTema} 
+        />
+        </header>
+        );
 };
 
 Header.propTypes = {
