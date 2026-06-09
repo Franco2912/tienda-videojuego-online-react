@@ -49,11 +49,11 @@ const CarruselJuegos = ({ listaJuegos }) => {
                         {tieneDescuento ? (
                         <>
                             <span className="text-muted text-decoration-line-through small d-block">
-                            ${juego.precioBase?.toLocaleString('es-AR')}
+                            ${juego.precioBase?.toLocaleString('en-US')}
                             </span>
                             <div className="d-flex align-items-center gap-2">
                             <span className="fs-4 text-info fw-bold">
-                                ${juego.precioFinal.toLocaleString('es-AR')}
+                                ${juego.precioFinal.toLocaleString('en-US')}
                             </span>
                             <span className="badge bg-success text-white fw-bold px-2 py-1 fs-6">
                                 -{juego.descuento}%
@@ -63,14 +63,14 @@ const CarruselJuegos = ({ listaJuegos }) => {
                         ) : (
                         /* Si no tiene descuento (Destacados normales) */
                         <span className="fs-4 text-success fw-bold d-block">
-                            ${juego.precioFinal.toLocaleString('es-AR')}
+                            ${juego.precioFinal.toLocaleString('en-US')}
                         </span>
                         )}
                     </div>
 
                     <Button 
                         as={Link} 
-                        to={`/producto/${juego.id}`} 
+                        to={`/productos/${juego.id}`} 
                         variant="info" 
                         className="fw-bold px-3"
                     >
