@@ -46,7 +46,7 @@ function Carrito() {
         </div>
 
         <div className="carrito-resumen__acciones d-grid gap-2 d-sm-flex">
-          <Button as={Link} to="/contacto" variant="primary" size="lg">
+          <Button as={Link} to="/checkout" variant="primary" size="lg">
             Finalizar compra
           </Button>
           <Button as={Link} to="/productos" variant="link" className="carrito-seguir">

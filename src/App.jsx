@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer.jsx';
 import NavbarWizardGames from './components/Navbar.jsx';
 import Carrito from './pages/Carrito.jsx';
+import Checkout from './pages/Checkout.jsx';
 import Contacto from './pages/Contacto.jsx';
 import DetalleProducto from './pages/DetalleProducto.jsx';
 import Inicio from './pages/Inicio.jsx';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/producto/:id" element={<DetalleProducto />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

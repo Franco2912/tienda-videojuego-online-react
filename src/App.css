@@ -159,6 +159,116 @@
   color: var(--color-text-muted);
 }
 
+.checkout-panel {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.checkout-panel__titulo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.checkout-panel--resumen {
+  position: sticky;
+  top: 1rem;
+}
+
+.checkout-form .form-label {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.checkout-form .form-control {
+  background-color: var(--color-bg);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: var(--color-text);
+}
+
+.checkout-form .form-control:focus {
+  background-color: var(--color-bg);
+  border-color: var(--color-brand);
+  color: var(--color-text);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.checkout-resumen-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-bg);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.checkout-resumen-inline strong {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+.checkout-resumen-vacio {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.checkout-resumen-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkout-resumen-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.checkout-resumen-item span:last-child {
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.checkout-resumen-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--color-text);
+}
+
+.checkout-resumen-total strong {
+  font-family: var(--font-heading);
+  color: var(--color-accent);
+  font-size: 1.35rem;
+}
+
+.checkout-exito,
+.checkout-vacio,
+.contacto-exito {
+  margin: 0;
+}
+
+.contacto-panel {
+  max-width: 36rem;
+}
+
+.checkout-resumen-confirmado {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .producto-card {
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
