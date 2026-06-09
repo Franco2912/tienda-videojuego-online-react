@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Card,Button} from 'react-bootstrap';
+import { Container, Row, Col} from 'react-bootstrap';
 import JuegoCard from "../components/JuegoCard"
 import { Link } from 'react-router-dom';
 //Filtros
@@ -53,7 +53,7 @@ function Biblioteca(){
         <Container className="mt-4">
             <Row>
                 <Col>
-                    <Buscador valor={buscador} onChange={setBuscador}></Buscador>
+                    <Buscador valor={buscador} onChange={setBuscador} placeholder={"Ingresa tu juego"}></Buscador>
                 </Col>
                 <Col>
                   <FiltroCategoria
@@ -82,7 +82,7 @@ function Biblioteca(){
                                         </Col>
                                         <Col>
                                             <Link to={`/productos/${juego.id}`} >
-                                                <button className='btn-irATienda w-100'>Ir a Tienda</button>                        
+                                                <button className='btn-VolverTienda w-100'>Ir a Tienda</button>                        
                                             </Link>                                    
                                         </Col>                                        
                                     </Row>
