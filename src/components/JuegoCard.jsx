@@ -1,36 +1,31 @@
-import "./JuegoCard.css"
-
+import { Card } from "react-bootstrap";
+import "../css/JuegoCard.css"
+import Etiquetas from './Etiquetas';
 
 
 function JuegoCard({ titulo, generos, imagen }) {
-    return (      
-        <div className="card card-juego h-100">
-            <img
+    return (
+        <Card className="card card-juego h-100">
+            <Card.Img
                 src={imagen}
                 alt={titulo}
                 className="imagen-juego"
             />
 
-            <div className="card-body card-juego-body">
-                <h5 className="titulo-juego">
+            <Card.Body className="card-body card-juego-body">
+                <Card.Title className="titulo-juego">
                     {titulo}
-                </h5>
+                </Card.Title>
 
-             <div className="categorias">
-                    {generos.map((categoria) => (
-                        <span
-                            key={categoria}
-                            className="badge categoria-badge"
-                        >
-                            {categoria}
-                        </span>
-                    ))}
+                <div className="categorias">
+                    <Etiquetas
+                        detalles={generos}
+                    ></Etiquetas>
                 </div>
-
-               
-            </div>
-        </div>
+            </Card.Body>
+        </Card>
     );
 }
 
 export default JuegoCard;
+

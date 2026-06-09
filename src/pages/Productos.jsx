@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import JuegoCard from "../components/JuegoCard"
 import juegosBiblioteca from "../data/productos"
-import "./Productos.css"
+import "../css/Productos.css"
 import Buscador from "../components/Buscador"
 import FiltroCategoria from '../components/FiltroCategoria';
 import { Link } from "react-router";
@@ -22,13 +22,9 @@ const Productos = () => {
 
 
     return porTitulo && porCategoria
-  }
+    }
   )
-
-
-
   return (
-
     <Container className="mt-4">
       <div className=' col-md-8 ' >
         <h2 className="mb-4 text-info text-uppercase tracking-wider">🎮 Catálogo de Videojuegos.</h2>
@@ -40,6 +36,7 @@ const Productos = () => {
         <Buscador
           valor={buscador}
           onChange={setBuscador}
+          placeholder={" Busca tu siguiente aventura..."}
         ></Buscador>
 
         <div className="col-md-4">
@@ -48,14 +45,13 @@ const Productos = () => {
             setCategoriaSelec={setCategoriaSelec}
             categorias={categorias}
           >
-
           </FiltroCategoria>
         </div>
 
       </div>
 
-      <Col className='contenedor-juego'>
-        <div className="  p-5 text-center bg-dark rounded border border-secondary">
+      <Col className="contenedor-juego">
+        <div className= "p-5 text-center bg-dark rounded border border-secondary">
 
           {juegosFiltrados.length > 0 ? (
             <Row >
@@ -81,8 +77,6 @@ const Productos = () => {
               </p>
             </div>
           )}
-
-
         </div>
       </Col>
 

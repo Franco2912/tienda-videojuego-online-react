@@ -14,7 +14,7 @@
     transform: translateY(-2px);
 }
 
-.btn-descargar {
+.btn-VolverTienda {
     background: linear-gradient(135deg, #2cffb5, #00d9ff);
     border: none;
     color: #000;
@@ -24,7 +24,7 @@
     
 }
 
-.btn-descargar:hover {
+.btn-VolverTienda:hover {
     background-color: #4dffc4;
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
@@ -67,4 +67,8 @@
 .link-juego {
     text-decoration: none;
     color: inherit;
+}
+
+.fila-Comprar{
+    padding-top: 20px;
 }
