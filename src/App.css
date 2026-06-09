@@ -120,6 +120,45 @@
   padding: 3rem 1rem;
 }
 
+.catalogo-resultados {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.filtros-productos {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+.filtros-productos .form-label {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filtros-productos .form-control,
+.filtros-productos .form-select {
+  background-color: var(--color-bg);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: var(--color-text);
+}
+
+.filtros-productos .form-control:focus,
+.filtros-productos .form-select:focus {
+  background-color: var(--color-bg);
+  border-color: var(--color-brand);
+  color: var(--color-text);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.filtros-productos .form-control::placeholder {
+  color: var(--color-text-muted);
+}
+
 .producto-card {
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
