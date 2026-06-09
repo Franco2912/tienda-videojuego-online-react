@@ -5,7 +5,7 @@ import usuariosRegistrados from "../data/usuarios"
 import { Container, Row, Col } from 'react-bootstrap';
 import "../css/DetalleProducto.css"
 import { useNavigate } from "react-router"
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 import GaleriaMultimedia from "../components/GaleriaMultimedia";
 import PanelDeDetalles from "../components/PanelDeDetalles";
 import { Link } from "react-router";
@@ -17,13 +17,17 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
   const { id } = useParams();
   const detalles = juegosBiblioteca.find(juego => juego.id == Number(id))
   const navigate = useNavigate()
-  const [mediaActual, setMediaActual] = useState(0) 
-  useEffect(() => { setMediaActual(detalles.media[0])}, [id]);
+  const [mediaActual, setMediaActual] = useState(0)
+  useEffect(() => { setMediaActual(detalles.media[0]) }, [id]);
   const enBiblioteca = usuariosRegistrados[0].biblioteca.includes(detalles.id)
   const enCarrito = carrito.includes(detalles.id)
   const sinDescuento = detalles.descuento > 0
 
-  const juegosRelacionados = juegosBiblioteca.filter(juego => juego.id !== detalles.id && juego.genero.some(categoria => detalles.genero.includes(categoria))).slice(0, 4)
+  const juegosRelacionados = juegosBiblioteca.filter(juego => juego.id !== detalles.id)
+    .map(juego => ({...juego,coincidencias: juego.genero.filter(genero => detalles.genero.includes(genero)).length}))
+    .filter(juego => juego.coincidencias > 0)
+    .sort((a, b) => b.coincidencias - a.coincidencias)
+    .slice(0, 4);
 
   const agregarAlCarrito = (idJuego) => {
     setCarrito(prev => {
@@ -38,7 +42,7 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
     })
   }
 
-  
+
   return (
     <Container>
 
@@ -57,7 +61,7 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
           mediaActual={mediaActual}
           setMediaActual={setMediaActual}
           detalles={detalles}
-          medida={8}          
+          medida={8}
         ></GaleriaMultimedia>
 
         <PanelDeDetalles
@@ -113,7 +117,7 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
             <Link
               to={`/productos/${juego.id}`} className="card-similar"
             >
-              <img src={juego.imagen} alt={juego.titulo}className="img-similares"
+              <img src={juego.imagen} alt={juego.titulo} className="img-similares"
               />
               <div className="info-similar">
                 <span className="titulo-similar">{juego.titulo}</span>
