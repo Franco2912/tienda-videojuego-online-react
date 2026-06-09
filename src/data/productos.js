@@ -590,7 +590,7 @@ const juegosBiblioteca = [
   {
     id: 14,
     titulo: "Hades",
-    destacado: true,
+    destacado: false,
     genero: ["Acción", "RPG", "Rogue-like"],
     etiquetas: [
       "Single-player",
@@ -601,7 +601,7 @@ const juegosBiblioteca = [
     desarrollador: "Supergiant Games",
     fechaLanzamiento: "2020-09-17",
     precioBase: 15.99,
-    descuento: 20,
+    descuento: 0,
     descripcion:
       "Desafía al dios de los muertos mientras intentas escapar del Inframundo en este premiado rogue-like de acción.",
     imagen:
@@ -687,7 +687,7 @@ const juegosBiblioteca = [
     desarrollador: "Moon Studios",
     fechaLanzamiento: "2015-03-11",
     precioBase: 9.99,
-    descuento: 75,
+    descuento: 0,
     descripcion:
       "Ori and the Blind Forest cuenta la historia de un joven espíritu destinado al heroísmo. Explora un bosque mágico lleno de peligros, descubre nuevas habilidades y vive una emotiva aventura en uno de los metroidvania más aclamados.",
     imagen:
@@ -778,7 +778,7 @@ const juegosBiblioteca = [
     desarrollador: "Lazy Bear Games",
     fechaLanzamiento: "2018-08-15",
     precioBase: 11.99,
-    descuento: 50,
+    descuento: 0,
     descripcion:
       "Construye y administra tu propio cementerio medieval mientras exploras mazmorras, fabricas objetos y descubres secretos. Graveyard Keeper ofrece una visión irreverente y oscura del género de simulación de granjas.",
     imagen:
