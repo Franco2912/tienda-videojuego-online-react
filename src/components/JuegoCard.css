@@ -23,8 +23,20 @@
     border-radius: 10px;    
     
 }
-
+.btn-irATienda{
+    background: linear-gradient(135deg, #00d9ff,#2cffb5);
+    border: none;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 10px;    
+}
 .btn-descargar:hover {
+    background-color: #4dffc4;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+.btn-irATienda:hover {
     background-color: #4dffc4;
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
