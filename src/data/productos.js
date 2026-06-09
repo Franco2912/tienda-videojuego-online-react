@@ -494,7 +494,7 @@ const juegosBiblioteca = [
         tipo: "imagen",
         url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1282730/ss_d03a4b7460d5da83d7a208c7500d73861922664b.1920x1080.jpg?t=1751489185",
       },
-    ]
+    ],
   },
   {
     id: 12,
@@ -515,8 +515,7 @@ const juegosBiblioteca = [
       "¡Debes defender el último bastión de la humanidad con tu tropa de héroes! Extermina durante la noche a los diabólicos monstruos, ya sea con magia o mediante la violencia, y reconstruye las maltrechas defensas de tu ciudad durante el día en este RPG táctico con mecánicas rogue-lite.",
     imagen:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1105670/header.jpg?t=1778181686",
-    media:  
-    [
+    media: [
       {
         tipo: "video",
         url: "https://www.youtube.com/embed/ycJKs9EIni8?si=faT2ChZt6Obgfw1t",
@@ -543,9 +542,363 @@ const juegosBiblioteca = [
         tipo: "imagen",
         url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1105670/ss_f2d29924d2146b6c300e76ba094208ad9f1fee5e.1920x1080.jpg?t=1778181686",
       },
-    ]
-  }
-]
+    ],
+  },
+  {
+    id: 13,
+    titulo: "Celeste",
+    destacado: false,
+    genero: ["Plataformas", "Aventura"],
+    etiquetas: ["Single-player", "Difficult", "Pixel Graphics", "Indie"],
+    desarrollador: "Extremely OK Games",
+    fechaLanzamiento: "2018-01-25",
+    precioBase: 7.99,
+    descuento: 0,
+    descripcion:
+      "Ayuda a Madeline a sobrevivir a sus demonios internos en su viaje hasta la cima de la montaña Celeste en este desafiante juego de plataformas.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/504230/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/iofYDsA2yqg",
+        imagen: "https://img.youtube.com/vi/iofYDsA2yqg/0.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/FqBj2IGg6Uw?si=xXFbsn4dpJebdKw6",
+        imagen: "https://img.youtube.com/vi/FqBj2IGg6Uw/2.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/504230/ss_03bfe6bd5ddac7f747c8d2aa1a4f82cfd53c6dcb.1920x1080.jpg?t=1714089525",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/504230/ss_4b0f0222341b64a37114033aca9994551f27c161.1920x1080.jpg?t=1714089525",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/504230/ss_1012b11ad364ad6c138a25a654108de28de56c5f.1920x1080.jpg?t=1714089525",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/504230/ss_832ef0f27c3d6efdaa4b5d1cc896dce0999bc9e8.1920x1080.jpg?t=1714089525",
+      },
+    ],
+  },
+  {
+    id: 14,
+    titulo: "Hades",
+    destacado: false,
+    genero: ["Acción", "RPG", "Rogue-like"],
+    etiquetas: [
+      "Single-player",
+      "Hack and Slash",
+      "Greek Mythology",
+      "Fast-Paced",
+    ],
+    desarrollador: "Supergiant Games",
+    fechaLanzamiento: "2020-09-17",
+    precioBase: 15.99,
+    descuento: 0,
+    descripcion:
+      "Desafía al dios de los muertos mientras intentas escapar del Inframundo en este premiado rogue-like de acción.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/mD8x5xLHRho",
+        imagen: "https://img.youtube.com/vi/mD8x5xLHRho/2.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/91t0ha9x0AE?si=1wcfdSNpE6nIqRWG",
+        imagen: "https://img.youtube.com/vi/91t0ha9x0AE/0.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/ss_c0fed447426b69981cf1721756acf75369801b31.1920x1080.jpg?t=1758127023",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/ss_71b831acfddfa631e59e57405b347fb04e9ce8d5.1920x1080.jpg?t=1758127023",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/ss_68300459a8c3daacb2ec687adcdbf4442fcc4f47.1920x1080.jpg?t=1758127023",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/ss_bcb499a0dd001f4101823f99ec5094d2872ba6ee.1920x1080.jpg?t=1758127023",
+      },
+    ],
+  },
+  {
+    id: 15,
+    titulo: "RimWorld",
+    destacado: true,
+    genero: ["Simulación", "Estrategia"],
+    etiquetas: ["Single-player", "Colony Sim", "Management", "Sci-fi"],
+    desarrollador: "Ludeon Studios",
+    fechaLanzamiento: "2018-10-17",
+    precioBase: 17.99,
+    descuento: 0,
+    descripcion:
+      "RimWorld es un simulador de colonias de ciencia ficción impulsado por un narrador de inteligencia artificial. Gestiona supervivientes, construye una colonia, investiga nuevas tecnologías y sobrevive a amenazas que van desde piratas hasta invasiones mecánicas.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/294100/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/3tDrxOASUog",
+        imagen: "https://img.youtube.com/vi/3tDrxOASUog/0.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/DJmYKKzC0uA?si=2JLMf_dtxM8AJOsi",
+        imagen: "https://img.youtube.com/vi/DJmYKKzC0uA/0.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/294100/80e383ef19353058791efe17a6485849246c9c17/ss_80e383ef19353058791efe17a6485849246c9c17.1920x1080.jpg?t=1780420333",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/294100/cccfece4c643fd32d438642fbea1b980bc519a48/ss_cccfece4c643fd32d438642fbea1b980bc519a48.1920x1080.jpg?t=1780420333",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/294100/57c3e8d556d47bb5ad048699643528aefc652aa6/ss_57c3e8d556d47bb5ad048699643528aefc652aa6.1920x1080.jpg?t=1780420333",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/294100/1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f/ss_1e3a2734b23daaa4eb60ea33dd87806aa65e0c8f.1920x1080.jpg?t=1780420333",
+      },
+    ],
+  },
+  {
+    id: 16,
+    titulo: "Ori and the Blind Forest",
+    destacado: true,
+    genero: ["Metroidvania", "Aventura", "Plataformas"],
+    etiquetas: ["Single-player", "Atmospheric", "Beautiful", "Story Rich"],
+    desarrollador: "Moon Studios",
+    fechaLanzamiento: "2015-03-11",
+    precioBase: 9.99,
+    descuento: 0,
+    descripcion:
+      "Ori and the Blind Forest cuenta la historia de un joven espíritu destinado al heroísmo. Explora un bosque mágico lleno de peligros, descubre nuevas habilidades y vive una emotiva aventura en uno de los metroidvania más aclamados.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/261570/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/cklw-Yu3moE",
+        imagen: "https://img.youtube.com/vi/cklw-Yu3moE/0.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/VrbGwU5Zx4M?si=FV10MYskj8V9gJlM",
+        imagen: "https://img.youtube.com/vi/VrbGwU5Zx4M/0.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/261570/ss_c617379b9d195eed0342f3ecf86898513e702b96.1920x1080.jpg?t=1667504148",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/261570/ss_a4dbe240c363fe04e39a13c9bd78c88c026f3c50.1920x1080.jpg?t=1667504148",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/261570/ss_85f66e8586a70b4fea5602a9d82ef2bf42c633b6.1920x1080.jpg?t=1667504148",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/261570/ss_a0f942bffe1e33485c1b96c4e717c0bcc9797976.1920x1080.jpg?t=1667504148",
+      },
+    ],
+  },
+  {
+    id: 17,
+    titulo: "Inscryption",
+    destacado: true,
+    genero: ["Cartas", "Estrategia", "Terror"],
+    etiquetas: [
+      "Single-player",
+      "Deckbuilding",
+      "Psychological Horror",
+      "Mystery",
+    ],
+    desarrollador: "Daniel Mullins Games",
+    fechaLanzamiento: "2021-10-19",
+    precioBase: 14.99,
+    descuento: 40,
+    descripcion:
+      "Inscryption es una oscura combinación de construcción de mazos, puzles y horror psicológico. Reúne cartas extrañas, descubre secretos ocultos y trata de sobrevivir a una inquietante partida que esconde mucho más de lo que parece.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1092790/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/RN5GSIWIN1k",
+        imagen: "https://img.youtube.com/vi/RN5GSIWIN1k/0.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/CdLajegMkzc?si=z1wXOsLKJAAbwjFI",
+        imagen: "https://img.youtube.com/vi/CdLajegMkzc/0.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1092790/ss_0191a69b0e94a9a7784f5b81e27f06379910645a.1920x1080.jpg?t=1777572925",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1092790/ss_3b714682e9e0a214df1630a234e9f6764528eece.1920x1080.jpg?t=1777572925",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1092790/ss_738220c84b63522c4ca8c77fbff1ddb252ea0fe9.1920x1080.jpg?t=1777572925",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1092790/ss_1db397016a48d454a7f65b18b88b7775d202c853.1920x1080.jpg?t=1777572925",
+      },
+    ],
+  },
+  {
+    id: 18,
+    titulo: "Graveyard Keeper",
+    destacado: false,
+    genero: ["Simulación", "RPG", "Aventura"],
+    etiquetas: ["Single-player", "Management", "Crafting", "Dark Humor"],
+    desarrollador: "Lazy Bear Games",
+    fechaLanzamiento: "2018-08-15",
+    precioBase: 11.99,
+    descuento: 0,
+    descripcion:
+      "Construye y administra tu propio cementerio medieval mientras exploras mazmorras, fabricas objetos y descubres secretos. Graveyard Keeper ofrece una visión irreverente y oscura del género de simulación de granjas.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/599140/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/C-R4sxshlco?si=6Aa-E5G98Vya7xI_",
+        imagen: "https://img.youtube.com/vi/C-R4sxshlco/0.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/GmZS6XFBJfQ?si=joSC5OzA0LkrH8i5",
+        imagen: "https://img.youtube.com/vi/GmZS6XFBJfQ/0.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/599140/ss_7616d4343808620c0853a9ee5f1e21597a20b042.1920x1080.jpg?t=1776259988",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/599140/ss_9533ec3b7abd3300e9873dcd0d2bd5794a8fe54b.1920x1080.jpg?t=1776259988",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/599140/ss_13f5648759859d6e681200be67581ca3cc4aecda.1920x1080.jpg?t=1776259988",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/599140/ss_2edf1779ad9992da1ae8f0f982a80f8945506154.1920x1080.jpg?t=1776259988",
+      },
+    ],
+  },
+  {
+    id: 19,
+    titulo: "The Binding of Isaac: Rebirth",
+    destacado: true,
+    genero: ["Acción", "Rogue-like"],
+    etiquetas: ["Single-player", "Indie", "Difficult", "Replay Value"],
+    desarrollador: "Nicalis",
+    fechaLanzamiento: "2014-11-04",
+    precioBase: 14.99,
+    descuento: 40,
+    descripcion:
+      "Isaac escapa de su madre y se adentra en un sótano lleno de monstruos, tesoros y secretos. Cada partida es distinta gracias a cientos de objetos y combinaciones únicas.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250900/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/BiZ6mMlOF7c?si=7DMaDW8f--l2UP9Q",
+        imagen: "https://img.youtube.com/vi/BiZ6mMlOF7c/0.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/27Le3kOOFQk?si=SEuV_8GigSnkwfA7",
+        imagen: "https://img.youtube.com/vi/27Le3kOOFQk/0.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250900/ss_25a4a446a433218d41a7e87e35b60c297e68e7a4.1920x1080.jpg?t=1731977365",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250900/ss_19ef624e8d97136ba6f928d389b85f7b8130c37a.1920x1080.jpg?t=1731977365",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250900/ss_b146a76ac5348e1cf958c3d01834e13b33c4e561.1920x1080.jpg?t=1731977365",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250900/ss_008a76bd0ab314c8140dd1a7ec61090c122d1779.1920x1080.jpg?t=1731977365",
+      },
+    ],
+  },
+  {
+    id: 20,
+    titulo: "Dead Cells",
+    destacado: false,
+    genero: ["Acción", "Metroidvania", "Rogue-like"],
+    etiquetas: ["Single-player", "Pixel Graphics", "Difficult", "Fast-Paced"],
+    desarrollador: "Motion Twin",
+    fechaLanzamiento: "2018-08-07",
+    precioBase: 11.99,
+    descuento: 30,
+    descripcion:
+      "Explora un castillo en constante cambio en este roguevania inspirado en los mejores juegos de acción en 2D.",
+    imagen:
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/header.jpg",
+    media: [
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/gX4cGcwmdsY",
+        imagen: "https://img.youtube.com/vi/gX4cGcwmdsY/0.jpg",
+      },
+      {
+        tipo: "video",
+        url: "https://www.youtube.com/embed/DkPfOuoBv_Y?si=8hZgIx7DZMAKFLiF",
+        imagen: "https://img.youtube.com/vi/DkPfOuoBv_Y/0.jpg",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/ss_ac28000ade40cc2fe5c128f32ac98ba33c008a7a.1920x1080.jpg?t=1779086887",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/ss_7bde51ea6c8f6289e85ea1d8c1c941e1f8bfee91.1920x1080.jpg?t=1779086887",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/ss_e87e72a247918d8493892e035d5e1b4b84470d2f.1920x1080.jpg?t=1779086887",
+      },
+      {
+        tipo: "imagen",
+        url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/ss_a099416b9f3e09d47c42f87667e6ad6f394ba652.1920x1080.jpg?t=1779086887",
+      },
+    ],
+  },
+];
 
 const productosProcesados = juegosBiblioteca.map((juego) => {
   // Calculamos el precio final de manera limpia para cada juego
