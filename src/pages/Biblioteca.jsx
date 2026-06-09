@@ -98,7 +98,7 @@ function Biblioteca(){
                                     <JuegoCard titulo={juego.titulo} generos= {juego.genero}imagen={juego.imagen} />
                                         <Col>
                                             <Link to={`/productos/${juego.id}`} >
-                                                <button className='btn-irATienda w-100'>Ir a Tienda</button>                        
+                                                <button className='btn-VolverTienda w-100'>Ir a Tienda</button>                        
                                             </Link>                                    
                                         </Col>     
                                 </Col>
