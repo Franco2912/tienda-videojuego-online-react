@@ -61,7 +61,14 @@ function NavbarWizardGames() {
             {isAuthenticated ? (
               <>
                 <span className="navbar-user px-lg-2">Hola, {usuario}</span>
-                <Button variant="outline-light" size="sm" onClick={logout}>
+                <Button
+                  variant="outline-light"
+                  size="sm"
+                  onClick={() => {
+                    logout();
+                    closeMenu();
+                  }}
+                >
                   Cerrar sesión
                 </Button>
               </>

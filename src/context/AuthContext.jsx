@@ -1,15 +1,32 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import { CREDENCIALES } from '../data/credenciales.js';
 
 const AuthContext = createContext(null);
+const STORAGE_KEY = 'wizardgames_user';
+
+function getStoredUsuario() {
+  return sessionStorage.getItem(STORAGE_KEY);
+}
 
 export function AuthProvider({ children }) {
-  const [usuario, setUsuario] = useState(null);
+  const [usuario, setUsuario] = useState(getStoredUsuario);
 
-  const login = () => false;
+  const login = useCallback((nombreUsuario, password) => {
+    const esValido =
+      nombreUsuario === CREDENCIALES.usuario &&
+      password === CREDENCIALES.password;
 
-  const logout = () => {
+    if (!esValido) return false;
+
+    setUsuario(CREDENCIALES.usuario);
+    sessionStorage.setItem(STORAGE_KEY, CREDENCIALES.usuario);
+    return true;
+  }, []);
+
+  const logout = useCallback(() => {
     setUsuario(null);
-  };
+    sessionStorage.removeItem(STORAGE_KEY);
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -18,7 +35,7 @@ export function AuthProvider({ children }) {
       login,
       logout,
     }),
-    [usuario]
+    [usuario, login, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
