@@ -71,6 +71,11 @@ const NavbarComponent = ({ carrito = [], temaActual, alCambiarTema }) => {
                 Biblioteca
                 </Nav.Link>
 
+                {/* Enlace a Nosotros */}
+                <Nav.Link as={NavLink} to="/nosotros">
+                Nosotros
+                </Nav.Link>
+
                 {/* Enlace al Carrito (Usamos Link común para evitar interferencias de la clase .active) */}
                 <Nav.Link 
                 as={Link} 

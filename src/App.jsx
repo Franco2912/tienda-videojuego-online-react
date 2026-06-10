@@ -9,6 +9,7 @@ import Carrito from './pages/Carrito';
 import Error404 from './pages/Error404';
 import Biblioteca from './pages/Biblioteca';
 import Formulario from './pages/Formulario';
+import Nosotros from './pages/Nosotros';
 import { useState, useEffect } from 'react'
 
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/biblioteca" element={<Biblioteca />} />            
+          <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/productos/:id" element={<DetalleProducto carrito = {carrito} setCarrito = {setCarrito} />} />
           <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} />} />
           <Route path="/checkout" element={<Formulario />} />
