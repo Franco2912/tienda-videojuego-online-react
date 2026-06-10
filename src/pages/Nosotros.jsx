@@ -1,51 +1,14 @@
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
 import { FiShield, FiZap, FiSmile, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { integrantes } from '../data/integrantes';
 
 const Nosotros = ({ temaActual }) => {
   // Clases de contraste según el modo claro u oscuro
-    const claseTitulo = temaActual === 'light' ? 'text-dark' : 'text-white';
-    const claseTexto = temaActual === 'light' ? 'text-secondary' : 'text-white-50';
-    const claseTarjeta = temaActual === 'light' ? 'bg-white text-dark border-light-subtle shadow-sm' : 'bg-black text-white border-secondary carousel-info-card';
-
-    const integrantes = [
-        {
-        nombre: "Franco Gabriel Rojas",
-        rol: "Estudiante en Tecnicatura en Programacion - Unahur",
-        github: "https://github.com/Franco2912",
-        linkedin: "https://www.linkedin.com/in/rojas-franco-054052333/",
-        avatar: "public/Integrantes/FrancoRojas.jpg"
-        },
-        {
-        nombre: "Lucía Ramírez",
-        rol: "UI/UX Designer",
-        github: "https://github.com",
-        linkedin: "https://linkedin.com",
-        avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150&h=150"
-        },
-        {
-        nombre: "Diego Fernández",
-        rol: "Backend Developer",
-        github: "https://github.com",
-        linkedin: "https://linkedin.com",
-        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150"
-        },
-        {
-        nombre: "Natalia Gómez",
-        rol: "Frontend Developer",
-        github: "https://github.com",
-        linkedin: "https://linkedin.com",
-        avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150"
-        },
-        {
-        nombre: "Mauro Silva",
-        rol: "QA y Testing",
-        github: "https://github.com",
-        linkedin: "https://linkedin.com",
-        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150"
-        }
-
-    ];
+    const claseTitulo = temaActual === 'primary' ? 'text-dark' : 'text-white';
+    const claseTexto = temaActual === 'primary' ? 'text-secondary' : 'text-white-50';
+    const claseTarjeta = temaActual === 'primary' ? 'bg-white text-dark border-primary-subtle shadow-sm' : 'bg-black text-white border-secondary carousel-info-card';
+    
 
     return (
         <Container className="mt-4 pb-5">
@@ -69,7 +32,7 @@ const Nosotros = ({ temaActual }) => {
         </Row>
 
         {/* 2. SECCIÓN: Pilares de la plataforma */}
-        <h3 className={`mb-4 text-uppercase fs-5 border-bottom border-secondary pb-2 ${temaActual === 'light' ? 'text-muted' : 'text-white-50'}`}>
+        <h3 className={`mb-4 text-uppercase fs-5 border-bottom border-secondary pb-2 ${temaActual === 'primary' ? 'text-muted' : 'text-white-50'}`}>
             Nuestros Pilares Informativos
         </h3>
         <Row className="g-4 mb-5">
@@ -116,7 +79,7 @@ const Nosotros = ({ temaActual }) => {
     </Row>
 
         {/* 3. SECCIÓN: El Equipo */}
-        <h3 className={`mb-4 text-uppercase fs-5 border-bottom border-secondary pb-2 ${temaActual === 'light' ? 'text-muted' : 'text-white-50'}`}>
+        <h3 className={`mb-4 text-uppercase fs-5 border-bottom border-secondary pb-2 ${temaActual === 'primary' ? 'text-muted' : 'text-white-50'}`}>
             Desarrolladores del Proyecto
         </h3>
         
@@ -135,7 +98,7 @@ const Nosotros = ({ temaActual }) => {
                 <Card.Body className="px-1 pb-1">
                     <Card.Title className="fw-bold mb-1 fs-5">{dev.nombre}</Card.Title>
                     <Card.Text className="text-success small mb-3 font-monospace">
-                    {dev.role || dev.rol}
+                    {dev.rol}
                     </Card.Text>
                     
                     {/* Redes del Desarrollador */}
