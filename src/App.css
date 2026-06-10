@@ -541,3 +541,151 @@
   color: var(--color-brand) !important;
   text-decoration: none;
 }
+
+.app-main:has(.landing) {
+  padding-top: 0;
+}
+
+.landing-hero {
+  padding: 3rem 0 4rem;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(59, 130, 246, 0.15), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(34, 211, 238, 0.08), transparent 45%),
+    var(--color-bg);
+}
+
+.landing-logo {
+  display: inline-block;
+  filter: drop-shadow(0 8px 24px rgba(59, 130, 246, 0.35));
+}
+
+.landing-titulo {
+  font-size: clamp(2.5rem, 6vw, 3.75rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.landing-descripcion {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 34rem;
+  margin-bottom: 1.75rem;
+}
+
+.landing-descripcion--cierre {
+  max-width: 28rem;
+  margin-bottom: 1.5rem;
+}
+
+.landing-carousel {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.landing-carousel__slide {
+  position: relative;
+  aspect-ratio: 16 / 7;
+}
+
+.landing-carousel__imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.landing-carousel__caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(transparent, rgba(15, 23, 42, 0.92));
+  text-align: left;
+}
+
+.landing-carousel__caption h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.landing-carousel__caption p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.landing-carousel .carousel-indicators [data-bs-target] {
+  background-color: var(--color-accent);
+}
+
+.landing-carousel .carousel-control-prev-icon,
+.landing-carousel .carousel-control-next-icon {
+  filter: invert(1);
+}
+
+.landing-destacados {
+  padding: 3.5rem 0;
+  background-color: var(--color-surface);
+  border-block: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.landing-seccion-titulo {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+.landing-destacado-card {
+  background-color: var(--color-bg);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.landing-destacado-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.landing-destacado-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.landing-destacado-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.landing-cierre {
+  padding: 4rem 0 5rem;
+}
+
+@media (max-width: 991px) {
+  .landing-hero {
+    padding: 2rem 0 3rem;
+  }
+
+  .landing-descripcion {
+    margin-inline: auto;
+  }
+
+  .landing-carousel {
+    margin-top: 0.5rem;
+  }
+}
