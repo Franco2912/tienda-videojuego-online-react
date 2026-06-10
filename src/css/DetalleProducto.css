@@ -27,7 +27,7 @@
     flex-direction: column;
 }
 
-.btn-descargar {
+.btn-biblioteca {
     background: linear-gradient(135deg, #2cffb5, #00d9ff);
     border: none;
     color: #000;
@@ -37,7 +37,7 @@
     
 }
 
-.btn-descargar:hover {
+.btn-biblioteca:hover {
     background-color: #4dffc4;
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
@@ -56,8 +56,8 @@
 }
 
 .detalle-valor{
-  color: #32fbe2;
-  font-weight: 500;
+    color: #32fbe2;
+    font-weight: 500;
 }
 
 .imagen-media{
@@ -139,15 +139,6 @@
 
 .btn-carrito:hover{
     box-shadow: 0 0 15px rgba(139,197,63,.4);
-}
-
-.btn-biblioteca{
-    background: linear-gradient(135deg, #6b7280, #4b5563);
-    color: white;
-    font-weight: bold;
-    padding: 8px 18px;
-    border-radius: 8px;
-    border: none;
 }
 
 .titulo-compra{

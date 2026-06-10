@@ -17,7 +17,7 @@ const Carrito = ({ carrito, setCarrito }) => {
       <h2 className="mb-4 text-info text-uppercase">Tu Carrito de Compras</h2>
 
       {juegosEnCarrito.length === 0 ? (
-        <div className="p-5 text-center bg-dark rounded border border-secondary">
+        <div className="p-5 text-center rounded border border-secondary fondo-card">
           <h4 className="text-white mb-3">Todavia no agregaste juegos al carrito</h4>
           <p className="text-muted mb-4">
             Explora la tienda y suma los titulos que quieras comprar.
@@ -39,7 +39,7 @@ const Carrito = ({ carrito, setCarrito }) => {
           </Col>
 
           <Col lg={4}>
-            <div className="bg-dark text-white p-4 rounded border border-secondary">
+            <div className="text-white p-4 rounded border border-secondary fondo-card">
               <h4 className="mb-3 text-info">Resumen</h4>
 
               <div className="d-flex justify-content-between mb-2">

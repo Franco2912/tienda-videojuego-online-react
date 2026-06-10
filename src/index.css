@@ -29,6 +29,11 @@ html[data-bs-theme="dark"] .fondo-app {
   min-height: 100vh;
 }
 
+html[data-bs-theme="dark"] .fondo-card {
+  background-color: var(--bs-card-bg-custom,#2f115e) !important;
+  transition: all 0.3s ease;
+}
+
 
 /* 2. MODO CLARO */
 html[data-bs-theme="primary"] .fondo-app {
@@ -36,6 +41,12 @@ html[data-bs-theme="primary"] .fondo-app {
   background-image: linear-gradient(to bottom, #431885, #2a0f52) !important;
   min-height: 100vh;
 }
+
+html[data-bs-theme="primary"] .fondo-card {
+  background-color: var(--bs-card-bg-custom,#451d80) !important;
+  transition: all 0.3s ease;
+}
+
 
 /* Si estás en modo claro, la info del carrusel pasa a ser blanca con texto oscuro */
 html[data-bs-theme="primary"] .carousel-info-card {
@@ -67,8 +78,6 @@ html[data-bs-theme="primary"] .carousel-info-card p {
   border-radius: 50%;
   border: 1px solid #00f2fe; /* Borde neón */
 }
-
-/* src/index.css */
 
 /* Clase que se aplica temporalmente mediante React */
 .carrito-sacudida {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Carousel, Row, Col, Badge, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -86,5 +87,9 @@ const CarruselJuegos = ({ listaJuegos }) => {
         </Carousel>
     );
 };
+
+CarruselJuegos.PropTypes = {
+    listaJuegos: PropTypes.array.isRequired
+}
 
 export default CarruselJuegos;
