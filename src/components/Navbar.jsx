@@ -30,7 +30,7 @@ const NavbarComponent = ({ carrito = [], temaActual, alCambiarTema }) => {
     }, [cantidadProductos]);
 
     return (
-        <BootstrapNavbar bg={temaActual} variant={temaActual === 'primary' ? 'dark' : 'light'} expand="lg" className="border-bottom border-purple sticky-top">
+        <BootstrapNavbar bg={temaActual} variant={temaActual === 'primary' ? 'dark' : 'primary'} expand="lg" className="border-bottom border-purple sticky-top">
         <Container>
                 
                 <img 

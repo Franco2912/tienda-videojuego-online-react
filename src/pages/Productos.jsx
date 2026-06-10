@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import JuegoCard from "../components/JuegoCard"
@@ -8,7 +9,7 @@ import FiltroCategoria from '../components/FiltroCategoria';
 import { Link } from "react-router";
 
 
-const Productos = () => {
+const Productos = ({ temaActual }) => {
 
   const [buscador, setBuscador] = useState("")
   const [categoriaSelec, setCategoriaSelec] = useState("")
@@ -51,7 +52,7 @@ const Productos = () => {
       </div>
 
       <Col className="contenedor-juego">
-        <div className= "p-5 text-center bg-dark rounded border border-secondary">
+        <div className={`p-5 text-center rounded border border-secondary ${temaActual === 'primary' ? 'bg-primary' : 'bg-dark'}`}>
 
           {juegosFiltrados.length > 0 ? (
             <Row >
@@ -60,6 +61,7 @@ const Productos = () => {
                 <div key={juego.id} className="col-md-3 mb-4">
                   <Link to={`/productos/${juego.id}`} className='link-juego'>
                     <JuegoCard
+                      temaActual={temaActual}
                       titulo={juego.titulo}
                       generos={juego.genero}
                       imagen={juego.imagen}
@@ -83,5 +85,9 @@ const Productos = () => {
     </Container>
   );
 };
+
+Productos.propTypes = {
+  temaActual: propTypes.string.isRequired
+}
 
 export default Productos;

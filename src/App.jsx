@@ -18,7 +18,7 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [tema, setTema] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
+    return localStorage.getItem('theme') || 'primary';
   });
 
   const [carrito, setCarrito] = useState(() => {
@@ -49,8 +49,8 @@ function App() {
       <main className="flex-grow-1 py-4"> 
         <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/productos" element={<Productos />} />
-          <Route path="/biblioteca" element={<Biblioteca />} />            
+          <Route path="/productos" element={<Productos temaActual={tema} />} />
+          <Route path="/biblioteca" element={<Biblioteca temaActual={tema}/>} />            
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/productos/:id" element={<DetalleProducto carrito = {carrito} setCarrito = {setCarrito} />} />
           <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} />} />

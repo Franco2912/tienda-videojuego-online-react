@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import JuegoCard from "../components/JuegoCard"
@@ -13,7 +14,7 @@ import usuariosRegistrados from '../data/usuarios';
 
 //
 
-function Biblioteca(){
+function Biblioteca({temaActual}){
     const usuarios = usuariosRegistrados.find(u => u.id == 1)
     const juegosUsuario = juegosBiblioteca.filter(juego => usuarios.biblioteca.includes(juego.id))
     
@@ -51,6 +52,7 @@ function Biblioteca(){
     return(
 
         <Container className="mt-4">
+            {/* Fila de filtros y buscador*/}
             <Row>
                 <Col>
                     <Buscador valor={buscador} onChange={setBuscador} placeholder={"Ingresa tu juego"}></Buscador>
@@ -68,47 +70,51 @@ function Biblioteca(){
                         </button>
                 </Col>
             </Row>
-            <Row>
-                <div className=" contenedor-juego">
-                    {favoritos === false ?(
-                        <Row>
-                            {juegosFiltrados.map(juego => (
-                                <Col key={juego.id} className='contenedor-juego col-md-4' >
-                                    <JuegoCard titulo={juego.titulo} generos= {juego.genero}imagen={juego.imagen} />
-                                    <Row>
-                                        <Col>
-                                            <button className='btn-descargar w-100'>Instalar</button>                                    
-                                        </Col>
-                                        <Col>
-                                            <Link to={`/productos/${juego.id}`} >
-                                                <button className='btn-VolverTienda w-100'>Ir a Tienda</button>                        
-                                            </Link>                                    
-                                        </Col>                                        
-                                    </Row>
-                                </Col>
-
-                            ))}
-                        </Row>
-                    ) : (
-                        <Row>
-                            {juegosDeseadosFiltrados.map(juego => (
-                
-                                <Col key={juego.id} className='contenedor-juego col-md-4' >
-                                    <JuegoCard titulo={juego.titulo} generos= {juego.genero}imagen={juego.imagen} />
-                                        <Col>
-                                            <Link to={`/productos/${juego.id}`} >
-                                                <button className='btn-VolverTienda w-100'>Ir a Tienda</button>                        
-                                            </Link>                                    
-                                        </Col>     
-                                </Col>
-
-                            ))}
-                        </Row>                        
-                    )}
-                </div>    
-            </Row>   
+            <div className={`p-5 text-center rounded border border-secondary ${temaActual === 'primary' ? 'bg-primary' : 'bg-dark'}`}>
+            {/* Grid de juegos */}
+            <Row className="g-4">
+                {favoritos === false ? (
+                    juegosFiltrados.map(juego => (
+                        <Col key={juego.id} xs={12} sm={6} md={4}>
+                            <JuegoCard titulo={juego.titulo} generos={juego.genero} imagen={juego.imagen}>
+                                {/* Los botones entran como children */}
+                                <Row className="g-2 mt-2">
+                                    <Col xs={6}>
+                                        <button className='btn-biblioteca w-100 btn btn-success btn-sm'>Instalar</button>
+                                    </Col>
+                                    <Col xs={6}>
+                                        <Link to={`/productos/${juego.id}`} className="text-decoration-none">
+                                            <button className='btn-biblioteca w-100 btn btn-success btn-sm'>Ir a Tienda</button>
+                                        </Link>
+                                    </Col>
+                                </Row>
+                            </JuegoCard>
+                        </Col>
+                    ))
+                ) : (
+                    juegosDeseadosFiltrados.map(juego => (
+                        <Col key={juego.id} xs={12} sm={6} md={4}>
+                            <JuegoCard titulo={juego.titulo} generos={juego.genero} imagen={juego.imagen}>
+                                <Row className="g-2 mt-2">
+                                    <Col xs={12}>
+                                        <Link to={`/productos/${juego.id}`} className="text-decoration-none">
+                                            <button className='btn-biblioteca w-100 btn btn-outline-info btn-sm'>Ir a Tienda</button>
+                                        </Link>
+                                    </Col>
+                                </Row>
+                            </JuegoCard>
+                        </Col>
+                    ))
+                )}
+            </Row>
+            </div> 
         </Container>
     )
 }
+
+Biblioteca.propTypes = {
+    temaActual: PropTypes.string.isRequired, // Validamos que temaActual sea una cadena y es requerido
+};
+
 
 export default Biblioteca

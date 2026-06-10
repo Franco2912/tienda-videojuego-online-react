@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Row, Col, Button, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -5,7 +6,7 @@ const CarritoItem = ({ juego, onEliminar }) => {
   const tieneDescuento = juego.descuento > 0;
 
   return (
-    <Row className="align-items-center bg-dark text-white p-3 mb-2 rounded border border-secondary mx-0">
+    <Row className="align-items-center bg-dark text-white p-3 mb-2 rounded border border-secondary mx-0 fondo-card">
       <Col xs={3} md={2}>
         <Image src={juego.imagen} alt={juego.titulo} fluid rounded />
       </Col>
@@ -37,5 +38,10 @@ const CarritoItem = ({ juego, onEliminar }) => {
     </Row>
   );
 };
+
+CarritoItem.propTypes = {
+    juego: PropTypes.object.isRequired,
+    onEliminar: PropTypes.func.isRequired
+}
 
 export default CarritoItem;
