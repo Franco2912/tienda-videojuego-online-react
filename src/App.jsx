@@ -9,17 +9,32 @@ import Carrito from './pages/Carrito';
 import Error404 from './pages/Error404';
 import Biblioteca from './pages/Biblioteca';
 import Formulario from './pages/Formulario';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 function App() {
 
+  const [tema, setTema] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+
   const [carrito, setCarrito] = useState([])
+
+
+  useEffect(() => {
+    const root = document.documentElement; // Selecciona la etiqueta <html> de tu index.html
+    root.setAttribute('data-bs-theme', tema);
+    localStorage.setItem('theme', tema); // Guarda la elección para que no se pierda al recargar
+  }, [tema]);
+
+  const cambiarTema= () => {
+    setTema((prevTema) => (prevTema === 'primary' ? 'dark' : 'primary'));
+  };
 
   return (
     <div className="d-flex flex-column min-vh-100 fondo-app">
       {/* El Header (con el Navbar adentro) se muestra SIEMPRE arriba */}
-      <Header carrito={carrito} />
+      <Header carrito={carrito} temaActual={tema} alCambiarTema={cambiarTema} />
 
       {/* El contenedor de rutas cambia el contenido del medio según la URL */}
       <main className="flex-grow-1 py-4"> 
@@ -34,7 +49,7 @@ function App() {
         </Routes>
       </main>
 
-      <Footer />
+      <Footer temaActual={tema} alCambiarTema={cambiarTema} />
     </div>
   );
 }
