@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import juegosBiblioteca from '../data/productos';
@@ -67,6 +68,11 @@ const Carrito = ({ carrito, setCarrito }) => {
       )}
     </Container>
   );
+};
+
+Carrito.propTypes = {
+  carrito: PropTypes.arrayOf(PropTypes.number).isRequired, // Validamos que carrito sea un array de números (IDs) y es requerido
+  setCarrito: PropTypes.func.isRequired // Validamos que setCarrito sea una función y es requerido
 };
 
 export default Carrito;

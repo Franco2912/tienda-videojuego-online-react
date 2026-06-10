@@ -16,7 +16,9 @@ const Header = ({ carrito, temaActual, alCambiarTema }) => {
 };
 
 Header.propTypes = {
-    carrito: PropTypes.array // Validamos que carrito sea un array (puede estar vacío)
+    carrito: PropTypes.array, // Validamos que carrito sea un array (puede estar vacío)
+    temaActual: PropTypes.string.isRequired, // Validamos que temaActual sea una cadena y es requerido
+    alCambiarTema: PropTypes.func.isRequired // Validamos que alCambiarTema sea una función y es requerido
 };
 
 export default Header;

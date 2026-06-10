@@ -1,14 +1,13 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-import { useParams } from "react-router";
+import PropTypes from 'prop-types';
+import { useParams, useNavigate, Link } from "react-router";
 import juegosBiblioteca from "../data/productos"
 import usuariosRegistrados from "../data/usuarios"
 import { Container, Row, Col } from 'react-bootstrap';
 import "../css/DetalleProducto.css"
-import { useNavigate } from "react-router"
 import { useState, useEffect } from "react";
 import GaleriaMultimedia from "../components/GaleriaMultimedia";
 import PanelDeDetalles from "../components/PanelDeDetalles";
-import { Link } from "react-router";
 
 
 
@@ -18,7 +17,7 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
   const detalles = juegosBiblioteca.find(juego => juego.id == Number(id))
   const navigate = useNavigate()
   const [mediaActual, setMediaActual] = useState(0)
-  useEffect(() => { setMediaActual(detalles.media[0]) }, [id]);
+  useEffect(() => { setMediaActual(detalles.media[0]) }, [detalles]);
   const enBiblioteca = usuariosRegistrados[0].biblioteca.includes(detalles.id)
   const enCarrito = carrito.includes(detalles.id)
   const sinDescuento = detalles.descuento > 0
@@ -41,6 +40,43 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
       return nuevoCarrito
     })
   }
+
+  const contenidoCompra = (() => {
+    if (enBiblioteca) {
+      return (
+        <>
+          <span> En la biblioteca </span>
+          <button className="btn-biblioteca" onClick={() => navigate('/biblioteca')}>Ir a biblioteca</button>
+        </>
+      )
+    }
+
+    if (enCarrito) {
+      return (
+        <>
+          <span> En el carrito</span>
+          <button className="btn-biblioteca" onClick={() => navigate('/carrito')}>Ir al carrito</button>
+        </>
+      )
+    }
+
+    if (sinDescuento) {
+      return (
+        <>
+          <span className="precio-base">${detalles.precioBase} USD</span>
+          <span className="precio-final">${detalles.precioFinal} USD</span>
+          <button className="btn-carrito" onClick={() => agregarAlCarrito(detalles.id)} >Agregar al carrito</button>
+        </>
+      )
+    }
+
+    return (
+      <>
+        <span className="precio-final"> ${detalles.precioFinal} USD </span>
+        <button className="btn-carrito" onClick={() => agregarAlCarrito(detalles.id)} >Agregar al carrito</button>
+      </>
+    )
+  })()
 
 
   return (
@@ -82,28 +118,7 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
         <Col md={6}>
           <div className="acciones-compra">
             <div className="precio-compra">
-              {enBiblioteca ? (
-                <>
-                  <span> En la biblioteca </span>
-                  <button className="btn-biblioteca" onClick={() => navigate('/biblioteca')}>Ir a biblioteca</button>
-                </>
-              ) : enCarrito ? (
-                <>
-                  <span> En el carrito</span>
-                  <button className="btn-biblioteca" onClick={() => navigate('/carrito')}>Ir al carrito</button>
-                </>
-              ) : sinDescuento ? (
-                <>
-                  <span className="precio-base">${detalles.precioBase} USD</span>
-                  <span className="precio-final">${detalles.precioFinal} USD</span>
-                  <button className="btn-carrito" onClick={() => agregarAlCarrito(detalles.id)} >Agregar al carrito</button>
-                </>
-              ) : (
-                <>
-                  <span className="precio-final"> ${detalles.precioFinal} USD </span>
-                  <button className="btn-carrito" onClick={() => agregarAlCarrito(detalles.id)} >Agregar al carrito</button>
-                </>
-              )}
+              {contenidoCompra}
             </div>
           </div>
         </Col>
@@ -128,11 +143,13 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
         ))}
       </Row>
     </Container>
-
-
-
   )
 }
+
+DetalleProducto.propTypes = {
+  carrito: PropTypes.array.isRequired, // Validamos que carrito sea un array y es requerido
+  setCarrito: PropTypes.func.isRequired // Validamos que setCarrito sea una función y es requerido
+};
 
 export default DetalleProducto;
 

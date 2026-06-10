@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Card } from "react-bootstrap";
 import "../css/JuegoCard.css"
 import Etiquetas from './Etiquetas';
@@ -26,6 +27,12 @@ function JuegoCard({ titulo, generos, imagen }) {
         </Card>
     );
 }
+
+JuegoCard.propTypes = {
+    titulo: PropTypes.string.isRequired, // Validamos que titulo sea una cadena y es requerido
+    generos: PropTypes.arrayOf(PropTypes.string).isRequired, // Validamos que generos sea un array de cadenas y es requerido
+    imagen: PropTypes.string.isRequired // Validamos que imagen sea una cadena (URL) y es requerido
+};
 
 export default JuegoCard;
 

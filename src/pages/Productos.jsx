@@ -57,7 +57,7 @@ const Productos = () => {
             <Row >
               {juegosFiltrados.map((juego) => (
 
-                <div className="col-md-3 mb-4">
+                <div key={juego.id} className="col-md-3 mb-4">
                   <Link to={`/productos/${juego.id}`} className='link-juego'>
                     <JuegoCard
                       titulo={juego.titulo}

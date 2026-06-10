@@ -25,7 +25,7 @@ function Biblioteca(){
 
     const [favoritos,setFavoritos] = useState(false)
 
-    const juegosOrdenados = juegosUsuario.sort((a, b) => a.titulo.localeCompare(b.titulo))
+    const juegosOrdenados = juegosUsuario.toSorted((a, b) => a.titulo.localeCompare(b.titulo))
 
     const categorias = [...new Set(juegosOrdenados.flatMap(juego => juego.genero))]
 
@@ -56,11 +56,11 @@ function Biblioteca(){
                     <Buscador valor={buscador} onChange={setBuscador} placeholder={"Ingresa tu juego"}></Buscador>
                 </Col>
                 <Col>
-                  <FiltroCategoria
+                    <FiltroCategoria
                     categoriaSelec={categoriaSelec}
                     setCategoriaSelec={setCategoriaSelec}
                     categorias={categorias}
-                  ></FiltroCategoria>    
+                    ></FiltroCategoria>    
                 </Col>
                 <Col className='row mb-4'>
                         <button onClick={() => {setFavoritos(!favoritos)}} className="lista-DeseadosActivado">
@@ -70,11 +70,10 @@ function Biblioteca(){
             </Row>
             <Row>
                 <div className=" contenedor-juego">
-                    {favoritos == false ?(
+                    {favoritos === false ?(
                         <Row>
                             {juegosFiltrados.map(juego => (
-                
-                                <Col className='contenedor-juego col-md-4' >
+                                <Col key={juego.id} className='contenedor-juego col-md-4' >
                                     <JuegoCard titulo={juego.titulo} generos= {juego.genero}imagen={juego.imagen} />
                                     <Row>
                                         <Col>
@@ -94,7 +93,7 @@ function Biblioteca(){
                         <Row>
                             {juegosDeseadosFiltrados.map(juego => (
                 
-                                <Col className='contenedor-juego col-md-4' >
+                                <Col key={juego.id} className='contenedor-juego col-md-4' >
                                     <JuegoCard titulo={juego.titulo} generos= {juego.genero}imagen={juego.imagen} />
                                         <Col>
                                             <Link to={`/productos/${juego.id}`} >

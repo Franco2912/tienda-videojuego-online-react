@@ -1,14 +1,13 @@
+import propTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import Etiquetas from './Etiquetas';
 
 const PanelDeDetalles = ({medida,detalles}) => {
     return (
-
         <Col md={medida} className="columna-detalles">
           <div >
             <img src={`${detalles.imagen}`} alt="foto del juego" className="detalles-imagen" />
           </div>
-
           <div className="contenedor-detalles">
             <p className="detalle-nombre">
               {detalles.descripcion}
@@ -20,7 +19,6 @@ const PanelDeDetalles = ({medida,detalles}) => {
             <p>
               <span className="detalle-nombre">Desarrollador:  </span>
               <span className="detalle-valor">{detalles.desarrollador}    </span>
-
             </p>
             <p>
               <span className="detalle-nombre">Etiquetas del producto:</span>
@@ -30,8 +28,18 @@ const PanelDeDetalles = ({medida,detalles}) => {
             ></Etiquetas>
           </div>
         </Col>
-
     )
 }
+
+PanelDeDetalles.propTypes = {
+    medida: propTypes.number.isRequired, // Validamos que medida sea un número y es requerido
+    detalles: propTypes.shape({ // Validamos que detalles sea un objeto con una forma específica
+        imagen: propTypes.string.isRequired, // Validamos que imagen sea una cadena (URL) y es requerido
+        descripcion: propTypes.string.isRequired, // Validamos que descripcion sea una cadena y es requerido
+        fechaLanzamiento: propTypes.string.isRequired, // Validamos que fechaLanzamiento sea una cadena y es requerido
+        desarrollador: propTypes.string.isRequired, // Validamos que desarrollador sea una cadena y es requerido
+        etiquetas: propTypes.arrayOf(propTypes.string).isRequired // Validamos que etiquetas sea un array de cadenas y es requerido
+    }).isRequired
+};
 
 export default PanelDeDetalles

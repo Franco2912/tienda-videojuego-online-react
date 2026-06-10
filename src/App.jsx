@@ -19,13 +19,19 @@ function App() {
     return localStorage.getItem('theme') || 'light';
   });
 
-  const [carrito, setCarrito] = useState([])
-
+  const [carrito, setCarrito] = useState(() => {
+    const carritoGuardado = localStorage.getItem('carrito');
+    return carritoGuardado ? JSON.parse(carritoGuardado) : [];
+  });
 
   useEffect(() => {
-    const root = document.documentElement; // Selecciona la etiqueta <html> de tu index.html
-    root.setAttribute('data-bs-theme', tema);
-    localStorage.setItem('theme', tema); // Guarda la elección para que no se pierda al recargar
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }, [carrito]);
+
+  useEffect(() => {
+    const root = document.documentElement; 
+    root.dataset.bsTheme = tema;
+    localStorage.setItem('theme', tema);
   }, [tema]);
 
   const cambiarTema= () => {
