@@ -2,15 +2,26 @@
 import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 
-const Footer = ( {temaActual}) => {
+const Footer = ({ temaActual }) => {
+
+    const claseFondo = temaActual === 'primary' ? 'bg-primary' : 'bg-dark';
+
     return (
-        <footer className={`bg-${temaActual} variant-${temaActual === 'primary' ? 'dark' : 'light'} py-4 border-top border-secondary`}>
+
+        <footer className={`${claseFondo} py-4 border-top border-secondary text-white-50 mt-auto`}>
             <Container className="text-center">
-                <p className="mb-1 text-white">🎮 TP Grupal: Tienda de Videojuegos Online</p>
-                <p className="small m-0">
-                    Desarrollado para la materia Interfaz de Usuario (CIU) - UNAHUR &copy; {new Date().getFullYear()}
+
+                <p className="mb-2 text-white fw-bold">
+                    NeonGames — Tienda de Videojuegos Online
                 </p>
-                <p className="small text-info mt-2 m-0">Integrantes del Grupo</p>
+                
+                <p className="small mb-2 text-info font-monospace">
+                    Rojas — Ramírez — Gonzalez — Diorio
+                </p>
+                
+                <p className="small m-0 text-white-50">
+                    Trabajo Práctico Troncal &bull; Interfaz de Usuario (CIU) &bull; UNAHUR &copy; {new Date().getFullYear()}
+                </p>
             </Container>
         </footer>
     );
