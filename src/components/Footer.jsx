@@ -1,4 +1,5 @@
 // src/components/Footer.jsx
+import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 
 const Footer = ( {temaActual}) => {
@@ -13,6 +14,10 @@ const Footer = ( {temaActual}) => {
             </Container>
         </footer>
     );
+};
+
+Footer.propTypes = {
+    temaActual: PropTypes.string.isRequired,
 };
 
 export default Footer;
