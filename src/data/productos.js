@@ -724,7 +724,7 @@ const juegosBiblioteca = [
   {
     id: 17,
     titulo: "Inscryption",
-    destacado: true,
+    destacado: false,
     genero: ["Cartas", "Estrategia", "Terror"],
     etiquetas: [
       "Single-player",
@@ -815,7 +815,7 @@ const juegosBiblioteca = [
   {
     id: 19,
     titulo: "The Binding of Isaac: Rebirth",
-    destacado: true,
+    destacado: false,
     genero: ["Acción", "Rogue-like"],
     etiquetas: ["Single-player", "Indie", "Difficult", "Replay Value"],
     desarrollador: "Nicalis",
@@ -898,6 +898,49 @@ const juegosBiblioteca = [
       },
     ],
   },
+  {
+  "id": 21,
+  "titulo": "Resident Evil 4 Remake",
+  "destacado": true,
+  "genero": ["Acción", "Survival Horror", "Aventura"],
+  "etiquetas": ["Single-player", "Action", "Zombies", "Atmospheric", "Third Person"],
+  "desarrollador": "Capcom",
+  "fechaLanzamiento": "2023-03-24",
+  "precioBase": 59.99,
+  "descuento": 0,
+  "descripcion":
+    "La supervivencia es solo el principio. Seis años después de la catástrofe de Raccoon City, Leon S. Kennedy viaja a un aislado pueblo europeo para rescatar a la hija del presidente.",
+  "imagen":
+    "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg?t=1772502922",
+  "media": [
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/rcFarJACzx0",
+      "imagen": "https://img.youtube.com/vi/rcFarJACzx0/0.jpg"
+    },
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/Yj9UeZzp12o",
+      "imagen": "https://img.youtube.com/vi/Yj9UeZzp12o/0.jpg"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/ss_59d1b19964cc532213df92c8287b75a0bffeb33c.1920x1080.jpg?t=1772502922"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/ss_ab807f8ad9e968a620777caf483cb6020367b9ee.1920x1080.jpg?t=1772502922"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/ss_69810f4cd155912fdfdd21da70181df7d454c874.1920x1080.jpg?t=1772502922"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0596bac955340495562f3ff2538756ebd9a7f073.1920x1080.jpg?t=1772502922"
+    }
+  ]
+},
 ];
 
 const productosProcesados = juegosBiblioteca.map((juego) => {
