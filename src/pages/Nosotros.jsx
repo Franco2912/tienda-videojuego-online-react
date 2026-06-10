@@ -23,10 +23,10 @@ const Nosotros = ({ temaActual }) => {
                 Quiénes somos en <span className="text-success">NeonGames</span>
             </h1>
             <p className={`lead ${claseTexto}`}>
-                Somos un equipo de estudiantes de informática apasionados por la tecnología y el gaming que se unieron con un objetivo claro: redefinir la experiencia de adquirir videojuegos de forma digital.
+                Somos un equipo de estudiantes de informática apasionados por la tecnología y el gaming que se unieron con un objetivo claro: redefinir la experiencia de adquirir videojuegos de forma digital, facil y segura.
             </p>
             <p className={claseTexto}>
-                Este sitio nace como nuestro proyecto troncal para la materia <strong>Interfaz de Usuario (CIU) en la Universidad Nacional de Hurlingham</strong>. Diseñamos cada vista desde cero enfocándonos en la usabilidad, la velocidad de respuesta y en crear una estética visual atractiva que se adapte perfectamente tanto a pantallas de escritorio como a dispositivos móviles.
+                Este sitio nace como nuestro proyecto troncal para la materia <strong>Interfaz de Usuario (CIU) en la Universidad Nacional de Hurlingham</strong>. Diseñamos cada vista desde cero enfocándonos en la usabilidad, la velocidad de respuesta y en crear una estética visual atractiva que se adapte perfectamente en múltiples dispositivos.
             </p>
             </Col>
         </Row>
@@ -85,7 +85,7 @@ const Nosotros = ({ temaActual }) => {
         
         <Row className="g-4 justify-content-center">
             {integrantes.map((dev) => (
-            <Col key={dev.nombre} xs={12} sm={6} md={4}>
+            <Col key={dev.nombre} xs={12} sm={6} md={3}>
                 <Card className={`text-center p-3 h-100 ${claseTarjeta}`}>
                 <div className="d-flex justify-content-center mt-2">
                     <img 
