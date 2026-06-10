@@ -1,13 +1,14 @@
 // src/components/Navbar.jsx
 import PropTypes from 'prop-types';
 import { useState, useEffect, useRef } from 'react';
-import { Navbar as BootstrapNavbar, Container, Nav, Badge } from 'react-bootstrap';
+import { Navbar as BootstrapNavbar, Container, Nav, Badge, Button } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom'; // <-- Importamos Link para el carrito
 import { FiShoppingCart } from 'react-icons/fi';
 import iconNeon from '../assets/logo-svg.svg';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const NavbarComponent = ({ carrito = [], temaActual, alCambiarTema }) => {
-    
+    const { isAuthenticated, usuario, logout } = useAuth();
     const [animar, setAnimar] = useState(false);
     const cantidadProductos = carrito.length;
     
@@ -75,6 +76,30 @@ const NavbarComponent = ({ carrito = [], temaActual, alCambiarTema }) => {
                 <Nav.Link as={NavLink} to="/nosotros">
                 Nosotros
                 </Nav.Link>
+
+                {/* Enlace a Contacto */}
+                <Nav.Link as={NavLink} to="/contacto">
+                Contacto
+                </Nav.Link>
+
+                {!isAuthenticated && (
+                    <Nav.Link as={NavLink} to="/login">
+                    Login
+                    </Nav.Link>
+                )}
+
+                {isAuthenticated && (
+                    <>
+                        <span className="navbar-user px-2">Hola, {usuario}</span>
+                        <Button
+                            variant="outline-info"
+                            size="sm"
+                            onClick={logout}
+                        >
+                            Cerrar sesión
+                        </Button>
+                    </>
+                )}
 
                 {/* Enlace al Carrito (Usamos Link común para evitar interferencias de la clase .active) */}
                 <Nav.Link 

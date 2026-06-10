@@ -8,7 +8,9 @@ import DetalleProducto from './pages/DetalleProducto';
 import Carrito from './pages/Carrito';
 import Error404 from './pages/Error404';
 import Biblioteca from './pages/Biblioteca';
-import Formulario from './pages/Formulario';
+import Checkout from './pages/Checkout';
+import Contacto from './pages/Contacto';
+import Login from './pages/Login';
 import Nosotros from './pages/Nosotros';
 import { useState, useEffect } from 'react'
 
@@ -52,7 +54,9 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/productos/:id" element={<DetalleProducto carrito = {carrito} setCarrito = {setCarrito} />} />
           <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} />} />
-          <Route path="/checkout" element={<Formulario />} />
+          <Route path="/checkout" element={<Checkout carrito={carrito} setCarrito={setCarrito} />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </main>
