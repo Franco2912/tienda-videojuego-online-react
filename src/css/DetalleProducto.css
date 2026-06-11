@@ -3,6 +3,8 @@
     margin-bottom: 20px;
 }
 
+
+
 .contenedor-media{
     height: 500px;
     display: flex;
@@ -15,6 +17,9 @@
     padding: 15px;
     color: #d9f8ff;
     line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .contenedor-detalles p{

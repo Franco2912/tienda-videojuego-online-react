@@ -1,0 +1,28 @@
+.btn-deseados {
+    background-color: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+    padding: 2px 5  px;
+    font-size: 0.7rem;
+    font-weight: 250;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+.btn-deseados:hover {
+    background-color: rgba(212, 175, 55, 0.12);
+}
+
+.btn-deseados.activo {
+    background-color: #d4af37;
+    color: #111;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.35);
+}
+
+.btn-deseados.activo:hover {
+    background-color: #e6c34a;
+}
+

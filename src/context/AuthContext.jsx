@@ -90,6 +90,34 @@ export function AuthProvider({ children }) {
     [persistBiblioteca]
   );
 
+  const agregarAListaDeseados = useCallback((idJuego) => {
+    setUsuario((prev) => {
+      if (!prev) return prev;
+
+      if (prev.listaDeDeseados.includes(idJuego)) {
+        return prev;
+      }
+
+      return {
+        ...prev,
+        listaDeDeseados: [...prev.listaDeDeseados, idJuego]
+      };
+    });
+  }, []);
+
+  const quitarDeListaDeseados = useCallback((idJuego) => {
+    setUsuario((prev) => {
+      if (!prev) return prev;
+
+      return {
+        ...prev,
+        listaDeDeseados: prev.listaDeDeseados.filter(
+          (id) => id !== idJuego
+        )
+      };
+    });
+  }, []);
+
   const value = useMemo(
     () => ({
       usuario,
@@ -97,10 +125,12 @@ export function AuthProvider({ children }) {
       login,
       logout,
       agregarABiblioteca,
+      agregarAListaDeseados,
+      quitarDeListaDeseados,
       estaEnBiblioteca: (productoId) =>
         usuario?.biblioteca.includes(Number(productoId)) ?? false,
     }),
-    [usuario, login, logout, agregarABiblioteca]
+    [usuario, login, logout, agregarABiblioteca,agregarAListaDeseados,quitarDeListaDeseados]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
