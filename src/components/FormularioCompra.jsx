@@ -179,7 +179,7 @@ function FormularioCompra({
           rows={3}
           value={form.mensaje}
           onChange={handleChange('mensaje')}
-          placeholder="Ej: versión física o digital del juego"
+          placeholder="Ej: versión física o digital del juego?"
         />
       </Form.Group>
 

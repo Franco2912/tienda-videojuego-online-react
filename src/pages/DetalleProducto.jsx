@@ -1,24 +1,28 @@
-/* eslint-disable react-hooks/set-state-in-effect */
 import PropTypes from 'prop-types';
 import { useParams, useNavigate, Link } from "react-router";
 import juegosBiblioteca from "../data/productos"
 import { useAuth } from "../context/AuthContext.jsx"
 import { Container, Row, Col } from 'react-bootstrap';
 import "../css/DetalleProducto.css"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import GaleriaMultimedia from "../components/GaleriaMultimedia";
 import PanelDeDetalles from "../components/PanelDeDetalles";
+import Error404 from './Error404.jsx';
 
 
 
 const DetalleProducto = ({ carrito, setCarrito }) => {
 
   const { id } = useParams();
-  const { estaEnBiblioteca} = useAuth();
+  const { estaEnBiblioteca } = useAuth();
   const detalles = juegosBiblioteca.find(juego => juego.id == Number(id))
   const navigate = useNavigate()
-  const [mediaActual, setMediaActual] = useState(0)
-  useEffect(() => { setMediaActual(detalles.media[0]) }, [detalles]);
+  const [mediaActual, setMediaActual] = useState(() => detalles ? detalles.media[0] : null);
+
+  if(!detalles) {
+    return <Error404 />;
+  }
+
   const enBiblioteca = estaEnBiblioteca(detalles.id)
   const enCarrito = carrito.includes(detalles.id)
   const sinDescuento = detalles.descuento > 0
@@ -41,6 +45,7 @@ const DetalleProducto = ({ carrito, setCarrito }) => {
       return nuevoCarrito
     })
   }
+
 
   const contenidoCompra = (() => {
     if (enBiblioteca) {
