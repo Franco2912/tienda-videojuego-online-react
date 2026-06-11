@@ -14,7 +14,7 @@ import PanelDeDetalles from "../components/PanelDeDetalles";
 const DetalleProducto = ({ carrito, setCarrito }) => {
 
   const { id } = useParams();
-  const { estaEnBiblioteca } = useAuth();
+  const { estaEnBiblioteca} = useAuth();
   const detalles = juegosBiblioteca.find(juego => juego.id == Number(id))
   const navigate = useNavigate()
   const [mediaActual, setMediaActual] = useState(0)

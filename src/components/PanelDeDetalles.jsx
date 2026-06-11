@@ -1,8 +1,16 @@
 import propTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import Etiquetas from './Etiquetas';
+import { useAuth } from "../context/AuthContext.jsx"
+import "../css/PanelDeDetalles.css"
 
 const PanelDeDetalles = ({medida,detalles}) => {
+
+     const {usuario,agregarAListaDeseados,quitarDeListaDeseados} = useAuth();
+
+    const enListaDeseados = usuario?.listaDeDeseados.includes(detalles.id) ?? false;
+
+
     return (
         <Col md={medida} className="columna-detalles">
           <div >
@@ -23,9 +31,17 @@ const PanelDeDetalles = ({medida,detalles}) => {
             <p>
               <span className="detalle-nombre">Etiquetas del producto:</span>
             </p>            
-            <Etiquetas
+            <Etiquetas className= "etiquetas"
                 detalles={detalles.etiquetas}
             ></Etiquetas>
+            
+            <div className='contenedor-deseados text-end'>
+              <button  className={enListaDeseados ? "btn-deseados activo": "btn-deseados"} onClick={() =>enListaDeseados ? quitarDeListaDeseados(detalles.id): agregarAListaDeseados(detalles.id)} >
+                   {enListaDeseados
+                    ? "★ Quitar de deseados"
+                    : "☆ Agregar a deseados"}
+            </button>
+            </div>            
           </div>
         </Col>
     )
