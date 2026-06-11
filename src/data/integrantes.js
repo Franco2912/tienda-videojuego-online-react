@@ -26,5 +26,12 @@ export const integrantes = [
         github: "https://github.com/NicolasJoaquin",
         linkedin: "https://linkedin.com",
         avatar: " "
-        }        
+        },
+        {
+        nombre: "Torres, Luca Nehuen",
+        rol: "Estudiante en Tecnicatura en Programacion - Unahur",
+        github: "https://github.com/lucanehuen",
+        linkedin: "https://linkedin.com",
+        avatar: "/Integrantes/Luca.jpeg"
+        },
     ];
