@@ -38,7 +38,7 @@ function Biblioteca({temaActual}){
 
     const juegosUsuario = juegosBiblioteca.filter(juego => usuario.biblioteca.includes(juego.id))
     
-    const listaDeDeseados = juegosBiblioteca.filter(juego => usuario.listaDeDeseados.includes(juego.id))
+    const listaDeDeseados = juegosBiblioteca.filter(juego => usuario.listaDeDeseados.includes(juego.id) && !usuario.biblioteca.includes(juego.id))
 
     const juegosOrdenados = juegosUsuario.toSorted((a, b) => a.titulo.localeCompare(b.titulo))
 
@@ -84,7 +84,16 @@ function Biblioteca({temaActual}){
                         <Col key={juego.id} xs={12} sm={6} md={4}>
                             <JuegoCard titulo={juego.titulo} generos={juego.genero} imagen={juego.imagen}>
                                 {/* Los botones entran como children */}
-                                <Row className="g-2 mt-2">
+                                {favoritos ? (
+                                    <Row className="g-2 mt-2">
+                                        <Col xs={12}>
+                                            <Link to={`/productos/${juego.id}`} className="text-decoration-none">
+                                                <button className='btn-biblioteca w-100 btn btn-success btn-sm'>Ir a Tienda</button>
+                                            </Link>
+                                        </Col>
+                                    </Row>
+                                ) : (
+                                    <Row className="g-2 mt-2">
                                     <Col xs={6}>
                                         <button className='btn-biblioteca w-100 btn btn-success btn-sm'>Instalar</button>
                                     </Col>
@@ -93,7 +102,9 @@ function Biblioteca({temaActual}){
                                             <button className='btn-biblioteca w-100 btn btn-success btn-sm'>Ir a Tienda</button>
                                         </Link>
                                     </Col>
-                                </Row>
+                                    </Row>)
+                                }
+
                             </JuegoCard>
                         </Col>
                     ))}
