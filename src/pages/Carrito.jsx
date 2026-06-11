@@ -1,15 +1,58 @@
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Row, Col, Button, Form, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import juegosBiblioteca from '../data/productos';
 import CarritoItem from '../components/CarritoItem';
+import { formatPrecio } from '../utils/formatters';
+
+const cuponesValidos = [
+  { nombre: '10OFF', porcentaje: 10 },
+  { nombre: '20OFF', porcentaje: 20 },
+  { nombre: '30OFF', porcentaje: 30 }
+];
+
+const formatPrecioConDecimales = (precio) => `$${precio.toFixed(2)} USD`;
 
 const Carrito = ({ carrito, setCarrito }) => {
+  const [codigoDescuento, setCodigoDescuento] = useState('');
+  const [cuponAplicado, setCuponAplicado] = useState(null);
+  const [mensajeCupon, setMensajeCupon] = useState('');
+
   const juegosEnCarrito = juegosBiblioteca.filter((juego) => carrito.includes(juego.id));
-  const total = juegosEnCarrito.reduce((acumulador, juego) => acumulador + juego.precioFinal, 0);
+  const subtotalSinDescuento = juegosEnCarrito.reduce(
+    (acumulador, juego) => acumulador + juego.precioBase,
+    0
+  );
+  const subtotalConDescuentosJuegos = juegosEnCarrito.reduce(
+    (acumulador, juego) => acumulador + juego.precioFinal,
+    0
+  );
+  const porcentajeCupon = cuponAplicado?.porcentaje ?? 0;
+  const descuentoCupon = subtotalConDescuentosJuegos * (porcentajeCupon / 100);
+  const total = subtotalConDescuentosJuegos - descuentoCupon;
 
   const eliminarDelCarrito = (idJuego) => {
     setCarrito((prev) => prev.filter((id) => id !== idJuego));
+  };
+
+  const aplicarCupon = (evento) => {
+    evento.preventDefault();
+
+    const codigoNormalizado = codigoDescuento.trim().toUpperCase();
+    const cuponEncontrado = cuponesValidos.find(
+      (cupon) => cupon.nombre === codigoNormalizado
+    );
+
+    if (!cuponEncontrado) {
+      setCuponAplicado(null);
+      setMensajeCupon('El codigo ingresado no es valido.');
+      return;
+    }
+
+    setCodigoDescuento(cuponEncontrado.nombre);
+    setCuponAplicado(cuponEncontrado);
+    setMensajeCupon(`Cupon ${cuponEncontrado.nombre} aplicado correctamente.`);
   };
 
   return (
@@ -47,10 +90,59 @@ const Carrito = ({ carrito, setCarrito }) => {
                 <span>{juegosEnCarrito.length}</span>
               </div>
 
+              <div className="d-flex justify-content-between align-items-end mb-3">
+                <span>Subtotal</span>
+                <span className="text-end">
+                  <small className="text-muted text-decoration-line-through d-block">
+                    {formatPrecio(subtotalSinDescuento)}
+                  </small>
+                  <span>{formatPrecio(subtotalConDescuentosJuegos)}</span>
+                </span>
+              </div>
+
+              <Form onSubmit={aplicarCupon} className="border-top border-secondary pt-3 mt-3">
+                <Form.Label htmlFor="codigoDescuento" className="fw-bold">
+                  Codigo de descuento
+                </Form.Label>
+                <div className="d-flex gap-2">
+                  <Form.Control
+                    id="codigoDescuento"
+                    type="text"
+                    value={codigoDescuento}
+                    onChange={(evento) => setCodigoDescuento(evento.target.value)}
+                    className="bg-dark text-white border-secondary"
+                  />
+                  <Button type="submit" variant="outline-info" className="fw-bold">
+                    Aplicar
+                  </Button>
+                </div>
+
+                {mensajeCupon && (
+                  <Alert
+                    variant={cuponAplicado ? 'success' : 'danger'}
+                    className="py-2 px-3 mt-3 mb-0"
+                  >
+                    {mensajeCupon}
+                  </Alert>
+                )}
+              </Form>
+
+              <div className="d-flex justify-content-between mt-3 mb-2">
+                <span>Descuento por codigo</span>
+                <span>{porcentajeCupon}%</span>
+              </div>
+
+              {cuponAplicado && (
+                <div className="d-flex justify-content-between mb-2 text-success">
+                  <span>Cupon {cuponAplicado.nombre}</span>
+                  <span>-{formatPrecioConDecimales(descuentoCupon)}</span>
+                </div>
+              )}
+
               <div className="d-flex justify-content-between align-items-center border-top border-secondary pt-3 mt-3">
                 <span className="fw-bold">Total</span>
                 <span className="fs-4 fw-bold text-success">
-                  ${total.toLocaleString('en-US')} USD
+                  {formatPrecioConDecimales(total)}
                 </span>
               </div>
 
