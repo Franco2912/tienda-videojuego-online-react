@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext.jsx';
-import { CREDENCIALES } from '../data/credenciales.js';
+import usuariosRegistrados from '../data/usuarios.js';
 import '../css/Formularios.css';
+
+const usuarioDemo = usuariosRegistrados[0];
 
 function Login() {
   const navigate = useNavigate();
@@ -81,8 +83,8 @@ function Login() {
           </Button>
 
           <p className="login-demo-hint mt-3 mb-0 text-center">
-            Credenciales de demo: <strong>{CREDENCIALES.usuario}</strong> /{' '}
-            <strong>{CREDENCIALES.password}</strong>
+            Credenciales de demo: <strong>{usuarioDemo.userName}</strong> /{' '}
+            <strong>{usuarioDemo.password}</strong>
           </p>
         </Form>
       </div>

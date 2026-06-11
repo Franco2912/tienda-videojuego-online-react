@@ -9,22 +9,36 @@ import FiltroCategoria from '../components/FiltroCategoria';
 //
 //objetos
 import juegosBiblioteca from "../data/productos"
-import usuariosRegistrados from '../data/usuarios';
+import { useAuth } from '../context/AuthContext.jsx';
 
 
 //
 
 function Biblioteca({temaActual}){
-    const usuarios = usuariosRegistrados.find(u => u.id == 1)
-    const juegosUsuario = juegosBiblioteca.filter(juego => usuarios.biblioteca.includes(juego.id))
-    
-    const listaDeDeseados = juegosBiblioteca.filter(juego => usuarios.listaDeDeseados.includes(juego.id))
-
-
+    const { isAuthenticated, usuario } = useAuth();
     const [buscador, setBuscador] = useState("")
     const [categoriaSelec, setCategoriaSelec] = useState("")
-
     const [favoritos,setFavoritos] = useState(false)
+
+    if (!isAuthenticated || !usuario) {
+        return (
+            <Container className="mt-4">
+                <div className={`p-5 text-center rounded border border-secondary ${temaActual === 'primary' ? 'bg-primary' : 'bg-dark'}`}>
+                    <h4 className="text-white mb-3">Iniciá sesión para ver tu biblioteca</h4>
+                    <p className="text-muted mb-4">
+                        Accedé con tu cuenta para ver los juegos que compraste.
+                    </p>
+                    <Link to="/login" className="btn btn-success fw-bold">
+                        Ir a Login
+                    </Link>
+                </div>
+            </Container>
+        );
+    }
+
+    const juegosUsuario = juegosBiblioteca.filter(juego => usuario.biblioteca.includes(juego.id))
+    
+    const listaDeDeseados = juegosBiblioteca.filter(juego => usuario.listaDeDeseados.includes(juego.id))
 
     const juegosOrdenados = juegosUsuario.toSorted((a, b) => a.titulo.localeCompare(b.titulo))
 

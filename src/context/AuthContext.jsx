@@ -1,32 +1,94 @@
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import { CREDENCIALES } from '../data/credenciales.js';
+import usuariosRegistrados from '../data/usuarios.js';
 
 const AuthContext = createContext(null);
-const STORAGE_KEY = 'neongames_user';
+const SESSION_USER_ID_KEY = 'neongames_userId';
 
-function getStoredUsuario() {
-  return sessionStorage.getItem(STORAGE_KEY);
+function getBibliotecaStorageKey(userId) {
+  return `neongames_biblioteca_${userId}`;
+}
+
+function loadBibliotecaFromStorage(userId, seedBiblioteca) {
+  const stored = localStorage.getItem(getBibliotecaStorageKey(userId));
+
+  if (stored) {
+    try {
+      return JSON.parse(stored);
+    } catch {
+      return [...seedBiblioteca];
+    }
+  }
+
+  return [...seedBiblioteca];
+}
+
+function buildUsuarioFromSeed(seed, biblioteca) {
+  const publicProfile = { ...seed };
+  delete publicProfile.password;
+  delete publicProfile.carrito;
+  return { ...publicProfile, biblioteca };
+}
+
+function findUsuarioByCredentials(userName, password) {
+  return usuariosRegistrados.find(
+    (u) => u.userName === userName && u.password === password
+  );
+}
+
+function findUsuarioById(id) {
+  return usuariosRegistrados.find((u) => u.id === Number(id));
+}
+
+function getInitialUsuario() {
+  const storedId = sessionStorage.getItem(SESSION_USER_ID_KEY);
+  if (!storedId) return null;
+
+  const seed = findUsuarioById(storedId);
+  if (!seed) return null;
+
+  const biblioteca = loadBibliotecaFromStorage(seed.id, seed.biblioteca);
+  return buildUsuarioFromSeed(seed, biblioteca);
 }
 
 export function AuthProvider({ children }) {
-  const [usuario, setUsuario] = useState(getStoredUsuario);
+  const [usuario, setUsuario] = useState(getInitialUsuario);
 
-  const login = useCallback((nombreUsuario, password) => {
-    const esValido =
-      nombreUsuario === CREDENCIALES.usuario &&
-      password === CREDENCIALES.password;
+  const persistBiblioteca = useCallback((userId, biblioteca) => {
+    localStorage.setItem(getBibliotecaStorageKey(userId), JSON.stringify(biblioteca));
+  }, []);
 
-    if (!esValido) return false;
+  const login = useCallback((userName, password) => {
+    const seed = findUsuarioByCredentials(userName, password);
+    if (!seed) return false;
 
-    setUsuario(CREDENCIALES.usuario);
-    sessionStorage.setItem(STORAGE_KEY, CREDENCIALES.usuario);
+    const biblioteca = loadBibliotecaFromStorage(seed.id, seed.biblioteca);
+    const usuarioLogueado = buildUsuarioFromSeed(seed, biblioteca);
+
+    setUsuario(usuarioLogueado);
+    sessionStorage.setItem(SESSION_USER_ID_KEY, String(seed.id));
     return true;
   }, []);
 
   const logout = useCallback(() => {
     setUsuario(null);
-    sessionStorage.removeItem(STORAGE_KEY);
+    sessionStorage.removeItem(SESSION_USER_ID_KEY);
   }, []);
+
+  const agregarABiblioteca = useCallback(
+    (ids) => {
+      setUsuario((prev) => {
+        if (!prev) return prev;
+
+        const nuevosIds = ids.filter((id) => !prev.biblioteca.includes(id));
+        if (nuevosIds.length === 0) return prev;
+
+        const nuevaBiblioteca = [...prev.biblioteca, ...nuevosIds];
+        persistBiblioteca(prev.id, nuevaBiblioteca);
+        return { ...prev, biblioteca: nuevaBiblioteca };
+      });
+    },
+    [persistBiblioteca]
+  );
 
   const value = useMemo(
     () => ({
@@ -34,8 +96,11 @@ export function AuthProvider({ children }) {
       isAuthenticated: usuario !== null,
       login,
       logout,
+      agregarABiblioteca,
+      estaEnBiblioteca: (productoId) =>
+        usuario?.biblioteca.includes(Number(productoId)) ?? false,
     }),
-    [usuario, login, logout]
+    [usuario, login, logout, agregarABiblioteca]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

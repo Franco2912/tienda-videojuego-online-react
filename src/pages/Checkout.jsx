@@ -90,6 +90,7 @@ function Checkout({ carrito, setCarrito }) {
           <div className="form-panel">
             <h3 className="form-panel__titulo">Datos de la compra</h3>
             <FormularioCompra
+              carrito={carrito}
               estaVacio={estaVacio}
               vaciarCarrito={vaciarCarrito}
               cantidadTotal={cantidadTotal}
@@ -113,5 +114,10 @@ function Checkout({ carrito, setCarrito }) {
     </Container>
   );
 }
+
+Checkout.propTypes = {
+  carrito: PropTypes.arrayOf(PropTypes.number).isRequired,
+  setCarrito: PropTypes.func.isRequired,
+};
 
 export default Checkout;

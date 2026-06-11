@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { useParams, useNavigate, Link } from "react-router";
 import juegosBiblioteca from "../data/productos"
-import usuariosRegistrados from "../data/usuarios"
+import { useAuth } from "../context/AuthContext.jsx"
 import { Container, Row, Col } from 'react-bootstrap';
 import "../css/DetalleProducto.css"
 import { useState, useEffect } from "react";
@@ -14,11 +14,12 @@ import PanelDeDetalles from "../components/PanelDeDetalles";
 const DetalleProducto = ({ carrito, setCarrito }) => {
 
   const { id } = useParams();
+  const { estaEnBiblioteca } = useAuth();
   const detalles = juegosBiblioteca.find(juego => juego.id == Number(id))
   const navigate = useNavigate()
   const [mediaActual, setMediaActual] = useState(0)
   useEffect(() => { setMediaActual(detalles.media[0]) }, [detalles]);
-  const enBiblioteca = usuariosRegistrados[0].biblioteca.includes(detalles.id)
+  const enBiblioteca = estaEnBiblioteca(detalles.id)
   const enCarrito = carrito.includes(detalles.id)
   const sinDescuento = detalles.descuento > 0
 

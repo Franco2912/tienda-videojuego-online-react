@@ -90,7 +90,7 @@ const NavbarComponent = ({ carrito = [], temaActual, alCambiarTema }) => {
 
                 {isAuthenticated && (
                     <>
-                        <span className="navbar-user px-2">Hola, {usuario}</span>
+                        <span className="navbar-user px-2">Hola, {usuario.userName}</span>
                         <Button
                             variant="outline-info"
                             size="sm"

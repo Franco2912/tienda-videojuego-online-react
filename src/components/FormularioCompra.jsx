@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap';
+import { useAuth } from '../context/AuthContext.jsx';
 import { formatPrecio } from '../utils/formatters.js';
 import {
   FORMULARIO_CHECKOUT_INICIAL,
@@ -9,6 +10,7 @@ import {
 } from '../utils/validarFormulario.js';
 
 function FormularioCompra({
+  carrito,
   estaVacio,
   vaciarCarrito,
   cantidadTotal,
@@ -16,11 +18,13 @@ function FormularioCompra({
   onCompraConfirmada,
   construirResumen,
 }) {
+  const { isAuthenticated, agregarABiblioteca } = useAuth();
   const [form, setForm] = useState(FORMULARIO_CHECKOUT_INICIAL);
   const [errores, setErrores] = useState({});
   const [errorCarrito, setErrorCarrito] = useState('');
   const [enviado, setEnviado] = useState(false);
   const [emailConfirmado, setEmailConfirmado] = useState('');
+  const [compraSinSesion, setCompraSinSesion] = useState(false);
 
   const handleChange = (campo) => (event) => {
     setForm((prev) => ({ ...prev, [campo]: event.target.value }));
@@ -56,6 +60,13 @@ function FormularioCompra({
       onCompraConfirmada(construirResumen());
     }
 
+    if (isAuthenticated) {
+      agregarABiblioteca(carrito);
+      setCompraSinSesion(false);
+    } else {
+      setCompraSinSesion(true);
+    }
+
     vaciarCarrito();
     setEnviado(true);
     setForm(FORMULARIO_CHECKOUT_INICIAL);
@@ -70,6 +81,11 @@ function FormularioCompra({
           Gracias por tu pedido en NeonGames. Recibirás un email de confirmación
           en <strong>{emailConfirmado}</strong> con los detalles de tu compra.
         </p>
+        {compraSinSesion && (
+          <p className="mb-3 text-muted">
+            Iniciá sesión para ver tus juegos en la biblioteca.
+          </p>
+        )}
         <div className="d-flex flex-wrap gap-2">
           <Button as={Link} to="/productos" variant="success">
             Seguir comprando
@@ -180,5 +196,15 @@ function FormularioCompra({
     </Form>
   );
 }
+
+FormularioCompra.propTypes = {
+  carrito: PropTypes.arrayOf(PropTypes.number).isRequired,
+  estaVacio: PropTypes.bool.isRequired,
+  vaciarCarrito: PropTypes.func.isRequired,
+  cantidadTotal: PropTypes.number.isRequired,
+  totalPrecio: PropTypes.number.isRequired,
+  onCompraConfirmada: PropTypes.func,
+  construirResumen: PropTypes.func,
+};
 
 export default FormularioCompra;
