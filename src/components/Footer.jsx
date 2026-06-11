@@ -16,7 +16,7 @@ const Footer = ({ temaActual }) => {
                 </p>
                 
                 <p className="small mb-2 text-info font-monospace">
-                    Rojas — Ramírez — Gonzalez — Diorio
+                    Rojas — Ramírez — Gonzalez — Diorio - Torres
                 </p>
                 
                 <p className="small m-0 text-white-50">

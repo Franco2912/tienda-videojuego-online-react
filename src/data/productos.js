@@ -940,7 +940,125 @@ const juegosBiblioteca = [
       "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0596bac955340495562f3ff2538756ebd9a7f073.1920x1080.jpg?t=1772502922"
     }
   ]
+},{
+  "id": 22,
+  "titulo": "Fallout 76",
+  "destacado": false,
+  "genero": ["RPG", "Acción", "Multijugador"],
+  "etiquetas": ["Open World", "Post-apocalyptic", "Survival", "Co-op", "Exploration"],
+  "desarrollador": "Bethesda Game Studios",
+  "fechaLanzamiento": "2020-04-14",
+  "precioBase": 39.99,
+  "descuento": 20,
+  "descripcion": "Bethesda Game Studios te da la bienvenida a Fallout 76. Veinticinco años después de la caída de las bombas, tú y los demás moradores del refugio elegidos salís a la luz en la América posnuclear. Explora un enorme páramo yermo.",
+  "imagen": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1151340/0bd68f952d2abb58a5710964b97f56584ef49f4d/header.jpg?t=1780927266",
+  "media": [
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/qSwmL71uC7U",
+      "imagen": "https://img.youtube.com/vi/qSwmL71uC7U/0.jpg"
+    },
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/02FTAyurZVA",
+      "imagen": "https://img.youtube.com/vi/02FTAyurZVA/0.jpg"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1151340/0d9b8b403d3c5ffebf054d293ea46607b8e249ab/ss_0d9b8b403d3c5ffebf054d293ea46607b8e249ab.1920x1080.jpg?t=1780927266"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1151340/ss_eb46ead41045cf474094df78d6876e9c0d4a9f77.1920x1080.jpg?t=1780927266"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1151340/ss_8209bb5861496496632a9a9aa80cba55b3cc856c.116x65.jpg?t=1780927266"
+    },
+  ]
 },
+{
+  "id": 23,
+  "titulo": "Plants vs. Zombies: Garden Warfare 2",
+  "destacado": true,
+  "genero": ["Acción", "Disparos", "Multijugador"],
+  "etiquetas": ["Third-Person Shooter", "Cute", "Comedy", "Co-op", "Family Friendly", "Class-Based"],
+  "desarrollador": "PopCap",
+  "fechaLanzamiento": "2016-02-23",
+  "precioBase": 29.99,
+  "descuento": 0,
+  "descripcion": "¡Prepara los cañones de guisantes y haz las maletas para el shooter más alocado del universo! El Dr. Zomboss ha conquistado Suburbia y la ha convertido en un paraíso repleto de zombis y libre de plantas. ¡Ahora les toca a las plantas pasar a la ofensiva!",
+  "imagen": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1922560/header.jpg?t=1772707471",
+  "media": [
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/9_0gZFfqK3w",
+      "imagen": "https://img.youtube.com/vi/9_0gZFfqK3w/0.jpg"
+    },
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/Hv7t_zFUDBk",
+      "imagen": "https://img.youtube.com/vi/Hv7t_zFUDBk/0.jpg"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1922560/ss_e91dfdfc1ef370eeb8bc6d294152838fa04267b8.1920x1080.jpg?t=1772707471"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1922560/ss_ef67fa9f527cda423e8864dbe1399495a771339b.1920x1080.jpg?t=1772707471"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1922560/ss_fa110f0c17fb9029c598aaeee57baf7c18876279.1920x1080.jpg?t=1772707471"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1922560/ss_903133a7337a7dab5ca0a5a2909cff7c79d9a7c2.1920x1080.jpg?t=1772707471"
+    }
+  ]
+},
+{
+  "id": 24,
+  "titulo": "60 Seconds! Reatomized",
+  "destacado": false,
+  "genero": ["Estrategia", "Simulación", "Comedia"],
+  "etiquetas": ["Survival", "Dark Comedy", "Post-apocalyptic", "Indie", "Choose Your Own Adventure"],
+  "desarrollador": "Robot Gentleman",
+  "fechaLanzamiento": "2019-07-25",
+  "precioBase": 9.99,
+  "descuento": 0,
+  "descripcion": "Ted, un ciudadano responsable y hombre de familia, se enfrenta a una pequeña perturbación en su idílico estilo de vida suburbano: ¡el apocalipsis nuclear! Solo tienes 60 segundos para guiar a tu familia y juntar suministros antes de encerrarte en el búnker.",
+  "imagen": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1012880/header.jpg",
+  "media": [
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/xqC3Bu94eU8",
+      "imagen": "https://img.youtube.com/vi/xqC3Bu94eU8/0.jpg"
+    },
+    {
+      "tipo": "video",
+      "url": "https://www.youtube.com/embed/_xz6OihHGig",
+      "imagen": "https://img.youtube.com/vi/_xz6OihHGig/0.jpg"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1012880/ss_f6b3ce6ea360ad8d4f31d792229e89ab27f1c240.1920x1080.jpg?t=1760090145"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1012880/ss_0f0b1f8333ccffd87884ab34b1b2c2a8bf43d973.1920x1080.jpg?t=1760090145"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1012880/ss_5a55de3a779df94b72e2d0033a9d2ae0d0e6dc4b.1920x1080.jpg?t=1760090145"
+    },
+    {
+      "tipo": "imagen",
+      "url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1012880/ss_19088c73d93dd380597978e0bd5b9606f4ecf6e3.1920x1080.jpg?t=1760090145"
+    }
+  ]
+}
 ];
 
 const productosProcesados = juegosBiblioteca.map((juego) => {
