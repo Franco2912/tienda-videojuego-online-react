@@ -17,8 +17,8 @@ export const integrantes = [
         nombre: "Gonzalez, Nicolas",
         rol: "Estudiante en Tecnicatura en Programacion - Unahur",
         github: "https://github.com/Nicolas389",
-        linkedin: "https://linkedin.com",
-        avatar: " "
+        linkedin: "https://www.linkedin.com/in/nicolasgonzalez389",
+        avatar: "https://avatars.githubusercontent.com/u/121201601?v=4 "
         },
         {
         nombre: "Diorio, Nicolas",
@@ -26,5 +26,5 @@ export const integrantes = [
         github: "https://github.com/NicolasJoaquin",
         linkedin: "https://linkedin.com",
         avatar: " "
-        }
+        }        
     ];
