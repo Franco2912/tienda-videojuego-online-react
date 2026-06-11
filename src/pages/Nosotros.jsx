@@ -85,7 +85,7 @@ const Nosotros = ({ temaActual }) => {
         
         <Row className="g-4 justify-content-center">
             {integrantes.map((dev) => (
-            <Col key={dev.nombre} xs={12} sm={6} md={3}>
+            <Col key={dev.nombre} xs={12} sm={6} md={4}>
                 <Card className={`text-center p-3 h-100 ${claseTarjeta}`}>
                 <div className="d-flex justify-content-center mt-2">
                     <img 

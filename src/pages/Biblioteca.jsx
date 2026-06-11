@@ -38,7 +38,7 @@ function Biblioteca({temaActual}){
 
     const juegosUsuario = juegosBiblioteca.filter(juego => usuario.biblioteca.includes(juego.id))
     
-    const listaDeDeseados = juegosBiblioteca.filter(juego => usuario.listaDeDeseados.includes(juego.id))
+    const listaDeDeseados = juegosBiblioteca.filter(juego => usuario.listaDeDeseados.includes(juego.id) && !usuario.biblioteca.includes(juego.id))
 
     const juegosOrdenados = juegosUsuario.toSorted((a, b) => a.titulo.localeCompare(b.titulo))
 

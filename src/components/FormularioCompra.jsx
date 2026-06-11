@@ -90,8 +90,8 @@ function FormularioCompra({
           <Button as={Link} to="/productos" variant="success">
             Seguir comprando
           </Button>
-          <Button as={Link} to="/" variant="outline-info">
-            Volver al inicio
+          <Button as={Link} to="/biblioteca" variant="outline-info">
+            Ir a la Biblioteca
           </Button>
         </div>
       </Alert>
