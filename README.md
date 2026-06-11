@@ -84,7 +84,7 @@ Abrir dicha dirección en el navegador.
 | Nicolás Diorio | https://github.com/NicolasJoaquin |
 | Franco Gabriel Rojas | https://github.com/Franco2912 |
 | Alan Joel Ramidez | https://github.com/joelalan13 |
-| Luca  | https://github.com/ |
+| Luca  |https://github.com/lucanehuen |
 
 ---
 
